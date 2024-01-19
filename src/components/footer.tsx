@@ -7,7 +7,7 @@ import {Button} from "@/components/ui/button";
 export default function Footer() {
     const github_URL = "https://github.com/jcuencagento";
     const linkedin_URL = "https://www.linkedin.com/in/javiercuencagento/";
-    const code_URL = "https://github.com/jcuencagento/code-me-fast";
+    const code_URL = "https://github.com/jcuencagento/donkey-code";
 
     return (
         <footer className="flex justify-between text-center leading-[4rem] opacity-70">
