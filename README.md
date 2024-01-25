@@ -1,7 +1,7 @@
 ## Donkey Code
 
 
-🐒 Coding and typing speed and trust test.
+🫏 Coding and typing speed and trust test.
 
 
 <p align="center">
@@ -9,7 +9,10 @@
 </p>
 
 
-🏋🏼‍♂️ Trained for this with basic [Code Me Fast](https://github.com/jcuencagento/code-me-fast/).
+🏋🏼‍♂️ Trained for this with basic web [Code Me Fast](https://code-me-fast.vercel.app/).
+
+
+🪧 Coded that in this GitHub project [Code Me Fast code](https://github.com/jcuencagento/code-me-fast/)
 
 
 🧠 Inspired by [MonkeyType](https://monkeytype.com/).
