@@ -1,8 +1,11 @@
 "use client";
 
-import {GitHubLogoIcon, LinkedInLogoIcon, IdCardIcon, LockClosedIcon, CodeIcon} from "@radix-ui/react-icons";
+import {GitHubLogoIcon, LinkedInLogoIcon, CodeIcon} from "@radix-ui/react-icons";
 
 import {Button} from "@/components/ui/button";
+
+import Contact from "./contact";
+import Terms from "./terms";
 
 export default function Footer() {
     const github_URL = "https://github.com/jcuencagento";
@@ -12,22 +15,8 @@ export default function Footer() {
     return (
         <footer className="flex justify-between text-center leading-[4rem] opacity-70">
             <div>
-                <Button
-                    variant="ghost"
-                    onClick={() => {
-                        window.open(linkedin_URL, "_blank");
-                    }}
-                >
-                    <IdCardIcon className="mr-2 h-4 w-4" /> Contact
-                </Button>
-                <Button
-                    variant="ghost"
-                    onClick={() => {
-                        window.open(linkedin_URL, "_blank");
-                    }}
-                >
-                    <LockClosedIcon className="mr-2 h-4 w-4" /> Terms
-                </Button>
+                <Contact />
+                <Terms />
                 <Button
                     variant="ghost"
                     onClick={() => {
