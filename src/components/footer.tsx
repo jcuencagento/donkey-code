@@ -6,6 +6,7 @@ import {Button} from "@/components/ui/button";
 
 import Contact from "./contact";
 import Terms from "./terms";
+import Theme from "./theme";
 
 export default function Footer() {
     const github_URL = "https://github.com/jcuencagento";
@@ -44,6 +45,7 @@ export default function Footer() {
                 >
                     <GitHubLogoIcon className="mr-2 h-4 w-4" /> GitHub
                 </Button>
+                <Theme setTheme={() => console.log("Change theme...")} />
             </div>
         </footer>
     );

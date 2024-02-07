@@ -58,7 +58,7 @@ module.exports = {
             {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
             {blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
         ],
-        "no-console": "warn",
+        "no-console": "off",
         "react/prop-types": "off",
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
@@ -77,6 +77,8 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/require-await": "off",
         "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/no-unused-vars": [
             "warn",

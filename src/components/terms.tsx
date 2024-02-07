@@ -17,7 +17,7 @@ export default function Terms() {
         <Dialog>
             <DialogTrigger asChild>
                 <Button variant="ghost">
-                    <LockClosedIcon className="mr-2 h-4 w-4" /> Terms  
+                    <LockClosedIcon className="mr-2 h-4 w-4" /> Terms
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
