@@ -17,9 +17,10 @@ import { Toaster } from "react-hot-toast";
 // Layout =>
 import Layout from "@/layout";
 
-// SEO =>
+/*// SEO =>
 import { DefaultSeo } from "next-seo";
 import nextSeoConfig from "next-seo.config";
+<DefaultSeo {...nextSeoConfig} />*/
 
 // Next progress =>
 import NextNProgress from "nextjs-progressbar";
@@ -38,7 +39,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
         height={2}
         showOnShallow={true}
       />
-      <DefaultSeo {...nextSeoConfig} />
       <SessionProvider session={session}>
         <Layout>
           <Show routerKey={router.route}>
