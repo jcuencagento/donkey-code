@@ -1,0 +1,22 @@
+{
+  "theme_color": "#121212",
+  "background_color": "#121212",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "donkey-code",
+  "description": "Typing test and game interactive and persistent",
+  "short_name": "dcode",
+  "icons": [
+        {
+            "src": "/img/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
