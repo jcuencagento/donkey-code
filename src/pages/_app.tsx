@@ -42,6 +42,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <SessionProvider session={session}>
         <Layout>
           <Show routerKey={router.route}>
+            {/* @ts-expect-error Server Component */}
             <Component {...pageProps} />
           </Show>
         </Layout>
