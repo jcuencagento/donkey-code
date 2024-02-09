@@ -1,12 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { Button } from "@/ui";
 import { signOut, useSession } from "next-auth/react";
 import {
     BiBox,
     BiExit,
-    BiHash,
     BiMessageSquareEdit,
-    BiPlus,
 } from "react-icons/bi";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -35,8 +34,8 @@ const Auth = () => {
                 }
             );
         } finally {
-        setDisabled(false);
-        setClosing(false);
+            setDisabled(false);
+            setClosing(false);
         }
     };
 
@@ -50,15 +49,13 @@ const Auth = () => {
         return <LinkRoute href="/auth">Sign in</LinkRoute>;
     }
 
+    const avatar_image = "/img/avatar.png";
     return (
         <Dropdown
-        title={session?.user?.username}
-        className="bg-transparent"
-        icon={<BiHash size={18} />}
+            title={session?.user?.username}
+            className="bg-transparent"
+            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={25} width={25} style={{ borderRadius: '50%' }} />}
         >
-        <Link href="/dash/create">
-            <DropdownItem icon={<BiPlus size={17} />}>Create new link</DropdownItem>
-        </Link>
         <Link href="/dash">
             <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
         </Link>

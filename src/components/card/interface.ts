@@ -1,7 +1,11 @@
 export interface CardProps {
   id: number;
-  url: string;
-  slug: string;
-  description: string;
+  gameType: string;
+  gameDuration: string;
+  wpm: string;
+  createdAt: Date,
+  creatorId: string,
+  creatorUser: string,
+  creatorImage: string,
   className?: string;
 }

@@ -8,41 +8,42 @@ import toast from "react-hot-toast";
 import { BsGithub } from "react-icons/bs";
 
 const Auth = () => {
-  const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-  const handleSignIn = async () => {
-    setLoading(true);
-    try {
-      await signIn("github", {
-        callbackUrl: "/dash",
-      });
-    } catch (error) {
-      toast(
-        "An error occurred while logging in. Please create an issue about the problem.",
-        {
-          icon: "🤔",
-          style: toastStyles,
+    const handleSignIn = async () => {
+        setLoading(true);
+        console.log('Sign In...')
+        try {
+            await signIn("github", {
+                callbackUrl: "/dash",
+            });
+        } catch (error) {
+            toast(
+                "An error occurred while logging in. Please create an issue about the problem.",
+                {
+                    icon: "🤔",
+                    style: toastStyles,
+                }
+            );
         }
-      );
-    }
-  };
+    };
 
-  return (
-    <div className="container mx-auto">
-      <div className="mt-16 flex flex-col items-center justify-center px-4">
-        <h1 className="mb-8 text-4xl">👋 Welcome</h1>
-        <Button
-          className="ml-4 bg-midnightLight"
-          onClick={handleSignIn}
-          isLoading={loading}
-          loadingText="Loading..."
-          icon={<BsGithub size={17} />}
-        >
-          Sign in with GitHub
-        </Button>
-      </div>
-    </div>
-  );
+    return (
+        <div className="container mx-auto">
+            <div className="mt-16 flex flex-col items-center justify-center px-4">
+                <h1 className="mb-8 text-4xl">👋 Welcome</h1>
+                <Button
+                    className="ml-4 bg-midnightLight"
+                    onClick={handleSignIn}
+                    isLoading={loading}
+                    loadingText="Loading..."
+                    icon={<BsGithub size={17} />}
+                >
+                    Sign in with GitHub
+                </Button>
+            </div>
+        </div>
+    );
 };
 
 export const getServerSideProps: GetServerSideProps = async (

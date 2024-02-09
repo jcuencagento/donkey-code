@@ -1,6 +1,6 @@
 const nextSeoConfig = {
     title: "Donkey Code",
-    titleTemplate: "%s - Donkey Code",
+    titleTemplate: "%s - Type",
     description: "Typing test and game interactive and persistent",
     defaultTitle: "Donkey Code",
     additionalLinkTags: [

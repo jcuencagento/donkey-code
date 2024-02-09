@@ -10,12 +10,14 @@ datasource db {
 
 model Score {
     id              Int      @id @default(autoincrement())
-    gameType        String   @db.Text
-    gameDuration    String   @unique
-    wpm             String?
+    gameType        String   
+    gameDuration    String   
+    wpm             String
     createdAt       DateTime @default(now())
     createdBy       User?    @relation(fields: [creatorId], references: [id])
     creatorId       String
+    creatorUser     String
+    creatorImage    String
 
     @@index(id)
 }
