@@ -4,5 +4,6 @@
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
-    }
+    },
+    "eslint.enable": false
 }

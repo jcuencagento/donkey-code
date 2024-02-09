@@ -67,6 +67,7 @@ const Classification = () => {
                             gameType={score.gameType}
                             gameDuration={score.gameDuration}
                             wpm={score.wpm}
+                            createdAt={score.createdAt}
                             creatorId={score.creatorId}
                             creatorUser={score.creatorUser}
                             creatorImage={score.creatorImage || avatar_image}
