@@ -21,9 +21,10 @@
     "@trpc/server": "^10.18.0",
     "@uiball/loaders": "^1.2.6",
     "@vercel/analytics": "^0.1.11",
+    "@vercel/speed-insights": "^1.0.9",
     "framer-motion": "^10.9.1",
     "nanoid": "^3.3.6",
-    "next": "^13.2.4",
+    "next": "^13.3.0",
     "next-auth": "^4.20.1",
     "next-seo": "^5.15.0",
     "nextjs-progressbar": "^0.0.16",
@@ -37,9 +38,9 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/nanoid": "^3.0.0",
     "@types/node": "^18.15.10",
     "@types/react": "^18.0.29",
-    "@types/nanoid": "^3.0.0",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",

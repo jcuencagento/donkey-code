@@ -1,6 +1,7 @@
 import type { AppType } from "next/dist/shared/lib/utils";
 import type { Session } from "next-auth";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // tRPC =>
 import { trpc } from "@/utils/trpc";
@@ -48,6 +49,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
             <DefaultSeo {...nextSeoConfig} />
             <Toaster position="bottom-center" reverseOrder={false} />
             <Analytics />
+            <SpeedInsights />
         </>
     );
 };

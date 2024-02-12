@@ -4,6 +4,7 @@ import { BiTrophy } from "react-icons/bi";
 import Auth from "@/components/auth";
 import IconButton from "@/ui/iconButton";
 import CommandMenu from "../command";
+import Theme from "../theme";
 
 const Header = () => {
     return (
@@ -20,6 +21,7 @@ const Header = () => {
                 <Link href="/classification">
                     <IconButton icon={<BiTrophy size={20} />} />
                 </Link>
+                <Theme />
                 <CommandMenu />
                 <a href="https://github.com/jcuencagento/donkey-code" rel="noreferrer" target="_blank">
                     <IconButton icon={<BsGithub size={20} />} />

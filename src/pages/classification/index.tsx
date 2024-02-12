@@ -38,7 +38,7 @@ const Classification = () => {
     if (!scoresData) {
         return (
             <div className="mt-8 flex flex-col items-center justify-center">
-                <p className="mb-2">Loading your scores...</p>
+                <p className="mb-2">Loading the classification...</p>
                 <Loader />
             </div>
         );
