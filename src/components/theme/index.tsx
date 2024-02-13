@@ -40,7 +40,7 @@ const Theme = () => {
         <>
             <BiMoon
                 size={22}
-                className="mr-4 cursor-pointer text-gray-400 transition duration-200 ease-in-out hover:scale-110 hover:transform hover:text-gray-100"
+                className="mr-4 cursor-pointer text-gray-100 transition duration-200 ease-in-out hover:scale-110 hover:transform"
                 onClick={toggleModal}
             />
             {isModalOpen && (

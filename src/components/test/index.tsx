@@ -5,11 +5,13 @@ import { trpc } from "@/utils/trpc";
 import { CreateScoreInput } from "@/schema/score.schema";
 import { Button } from "@/ui";
 import { BiRocket } from "react-icons/bi";
+import { useSession } from "next-auth/react";
 
 const Test = () => {
     const [loading, setLoading] = useState(false);
     const [testValues, setTestValues] = useState({ wpm: '0', gameType: 'JavaScript', gameDuration: '30' });
     const [isActive, setIsActive] = useState(false);
+    const { data: session } = useSession();
     
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
@@ -30,7 +32,15 @@ const Test = () => {
     
     const onSubmit = (values: CreateScoreInput) => {
         setLoading(true);
-        mutate(values);
+        if (session) {
+            mutate(values);
+        } else {
+            setLoading(false);
+            toast("Nice! Login to store your scores", {
+                icon: "😼",
+                style: toastStyles,
+            });
+        }
     };
 
     return (

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
-import { BiTrophy } from "react-icons/bi";
+import { BiTrophy, BiCodeAlt } from "react-icons/bi";
 import Auth from "@/components/auth";
 import IconButton from "@/ui/iconButton";
 import CommandMenu from "../command";
@@ -19,12 +18,12 @@ const Header = () => {
                 <div className="flex items-center space-x-6">
                 <Auth />
                 <Link href="/classification">
-                    <IconButton icon={<BiTrophy size={20} />} />
+                    <IconButton icon={<BiTrophy size={22} />} />
                 </Link>
                 <Theme />
                 <CommandMenu />
                 <a href="https://github.com/jcuencagento/donkey-code" rel="noreferrer" target="_blank">
-                    <IconButton icon={<BsGithub size={20} />} />
+                    <IconButton icon={<BiCodeAlt size={22} />} />
                 </a>
                 </div>
             </div>

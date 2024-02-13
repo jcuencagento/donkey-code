@@ -1,4 +1,4 @@
-import { BsGithub } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
     return (
@@ -16,9 +16,14 @@ const Footer = () => {
                     <div className="flex items-center space-x-1">
                         <p>Javier Cuenca Gento © {new Date().getFullYear()} Donkey Code</p>
                     </div>
-                    <a href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
-                        <BsGithub size={18} className="transition-colors duration-100 hover:text-white" />
-                    </a>
+                    <div className="flex gap-6">
+                        <a href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
+                            <BsGithub size={20} className="transition-colors duration-100 hover:text-white" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/javiercuencagento/" target="_blank" rel="noreferrer">
+                            <BsLinkedin size={20} className="transition-colors duration-100 hover:text-white" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
