@@ -1,4 +1,6 @@
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import Link from "next/link";
+import { BsCollection, BsGithub, BsLinkedin } from "react-icons/bs";
+import Contact from "../contact";
 
 const Footer = () => {
     return (
@@ -17,6 +19,10 @@ const Footer = () => {
                         <p>Javier Cuenca Gento © {new Date().getFullYear()} Donkey Code</p>
                     </div>
                     <div className="flex gap-6">
+                        <Link href="/uicatalog">
+                            <BsCollection size={20} className="transition-colors duration-100 hover:text-white" />
+                        </Link>
+                        <Contact />
                         <a href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
                             <BsGithub size={20} className="transition-colors duration-100 hover:text-white" />
                         </a>

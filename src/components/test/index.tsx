@@ -53,7 +53,7 @@ const Test = () => {
             >
                 Send Score
             </Button>
-            <div>
+            <div className="m-auto">
                 <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
                 <span style={{ display: 'inline-block'}}>T</span>
                     <span 

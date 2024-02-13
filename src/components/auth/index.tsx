@@ -57,20 +57,20 @@ const Auth = () => {
             className="bg-transparent"
             icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={28} width={28} style={{ borderRadius: '50%' }} />}
         >
-        <Link href="/dash">
-            <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
-        </Link>
-        <Link href="/dash">
-            <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
-        </Link>
-        <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
-            <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
-            Report a bug
+            <Link href="/dash">
+                <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
+            </Link>
+            <Link href="/dash">
+                <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
+            </Link>
+            <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
+                <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
+                Report a bug
+                </DropdownItem>
+            </a>
+            <DropdownItem icon={<BiExit size={17} />} onClick={handleLogout}>
+                Sign Out
             </DropdownItem>
-        </a>
-        <DropdownItem icon={<BiExit size={17} />} onClick={handleLogout}>
-            Sign Out
-        </DropdownItem>
         </Dropdown>
     );
 };

@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import Alert from "@/ui/alert";
 import Button from "@/ui/button";
-import { Dropdown } from "@/ui/dropdown";
+import { Dropdown, DropdownItem } from "@/ui/dropdown";
 import IconButton from "@/ui/iconButton";
 import { Input } from "@/ui";
-import { BiCodeAlt, BiMoon } from "react-icons/bi";
+import Link from "next/link";
+import { BiAnchor, BiBox, BiEqualizer, BiExit, BiMessageSquareEdit, BiPlayCircle } from "react-icons/bi";
 
 
 const uiCatalog = () => {
@@ -35,18 +36,42 @@ const uiCatalog = () => {
     }
 
     return (
-        <div className="grid gap-2">
-            <Button onClick={toggleAlert}>Alerta</Button>
-            <Dropdown></Dropdown>
-            <IconButton icon={<BiCodeAlt size={22} />} />
-            <Input
-                id="filter"
-                type="text"
-                placeholder="Example"
-                onChange={() => {}}
-            />
-            <div>
-                <BiMoon
+        <div className="flex-col p-10 w-[60%] m-auto">
+            <div className="mb-8">
+                <Button onClick={toggleAlert}>Alerta</Button>
+            </div>
+            <div className="flex gap-4 mb-8">
+                <IconButton icon={<BiAnchor size={22} />} />
+                Ejemplo botón icono
+            </div>
+            <div className="mb-8">
+                <Input
+                    id="filter"
+                    type="text"
+                    placeholder="Input example"
+                    onChange={() => {}}
+                />
+            </div>
+            <div className="mb-8">
+                <Dropdown title="Ejemplo Dropdown" className="bg-transparent">
+                    <Link href="/dash">
+                        <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
+                    </Link>
+                    <Link href="/dash">
+                        <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
+                    </Link>
+                    <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
+                        <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
+                        Report a bug
+                        </DropdownItem>
+                    </a>
+                    <DropdownItem icon={<BiExit size={17} />}>
+                        Sign Out
+                    </DropdownItem>
+                </Dropdown>
+            </div>
+            <div className="mb-8">
+                <BiEqualizer
                     size={22}
                     className="mr-4 cursor-pointer text-gray-100 transition duration-200 ease-in-out hover:scale-110 hover:transform"
                     onClick={toggleModal}
@@ -62,3 +87,5 @@ const uiCatalog = () => {
         </div>
     );
 }
+
+export default uiCatalog;

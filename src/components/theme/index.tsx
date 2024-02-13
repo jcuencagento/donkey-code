@@ -48,7 +48,7 @@ const Theme = () => {
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
                         <h2 className="text-lg font-semibold mb-4 text-gray-800 mb-4">Choose Theme (in development)</h2>
                         <div className="flex justify-between">
-                            <button onClick={() => handleThemeSelection("light")} className="px-4 py-2 bg-blue-500 text-white rounded-md mr-2 ml-2">Light</button>
+                            <button onClick={() => handleThemeSelection("light")} className="px-4 py-2 bg-blue-400 text-white rounded-md mr-2 ml-2">Light</button>
                             <button onClick={() => handleThemeSelection("dark")} className="px-4 py-2 bg-gray-800 text-white rounded-md mr-2 ml-2">Dark</button>
                             <button onClick={() => handleThemeSelection("neutral")} className="px-4 py-2 bg-red-400 text-white rounded-md mr-2 ml-2">Neutral</button>
                         </div>
