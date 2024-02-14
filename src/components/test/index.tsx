@@ -6,13 +6,17 @@ import { CreateScoreInput } from "@/schema/score.schema";
 import { Button } from "@/ui";
 import { BiRocket } from "react-icons/bi";
 import { useSession } from "next-auth/react";
+import GamesOptions from "../gamesoptions";
 
 const Test = () => {
     const [loading, setLoading] = useState(false);
     const [testValues, setTestValues] = useState({ wpm: '0', gameType: 'JavaScript', gameDuration: '30' });
     const [isActive, setIsActive] = useState(false);
+    const [actualWPM, setActualWPM] = useState(null);
+    const [gameType, setGameType] = useState('JavaScript');
+    const [gameDuration, setGameDuration] = useState(30);
     const { data: session } = useSession();
-    
+
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
             setLoading(false);
@@ -29,7 +33,7 @@ const Test = () => {
             });
         },
     });
-    
+
     const onSubmit = (values: CreateScoreInput) => {
         setLoading(true);
         if (session) {
@@ -45,6 +49,11 @@ const Test = () => {
 
     return (
         <div className="flex gap-4 align-center justify-center">
+            <GamesOptions
+                gameType={gameType}
+                gameDuration={gameDuration}
+                setGameType={setGameType}
+                setGameDuration={setGameDuration}/>
             <Button
                 isLoading={loading}
                 loadingText="Submitting your score..."
@@ -56,7 +65,7 @@ const Test = () => {
             <div className="m-auto">
                 <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
                 <span style={{ display: 'inline-block'}}>T</span>
-                    <span 
+                    <span
                         style={{
                             position: 'absolute',
                             left: '-1.1px',
