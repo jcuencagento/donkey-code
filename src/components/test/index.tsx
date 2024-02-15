@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { toastStyles } from "@/styles/toast";
 import { trpc } from "@/utils/trpc";
@@ -11,9 +11,9 @@ import TypingArea from "../typingarea";
 
 const Test = () => {
     const [loading, setLoading] = useState(false);
-    const [testValues, setTestValues] = useState({ wpm: '0', gameType: 'JavaScript', gameDuration: '30' });
-    const [isActive, setIsActive] = useState(false);
-    const [actualWPM, setActualWPM] = useState(null);
+    const [testValues, setTestValues] = useState({ wpm: '0.0', gameType: 'JavaScript', gameDuration: '30' });
+    const [isTyping, setIsTyping] = useState(false);
+    const [actualWPM, setActualWPM] = useState('0.0');
     const [gameType, setGameType] = useState('JavaScript');
     const [gameDuration, setGameDuration] = useState(30);
     const { data: session } = useSession();
@@ -48,6 +48,12 @@ const Test = () => {
         }
     };
 
+    useEffect(() => {
+        if (!isTyping && actualWPM !== '0.0') {
+            onSubmit(testValues);
+        }
+    }, [isTyping]);
+
     return (
         <div className="flex-col align-center justify-center">
             <GamesOptions
@@ -55,18 +61,14 @@ const Test = () => {
                 gameDuration={gameDuration}
                 setGameType={setGameType}
                 setGameDuration={setGameDuration}/>
-            <Button
-                aria-label="Submit"
-                className="m-auto"
-                isLoading={loading}
-                loadingText="Submitting your score..."
-                onClick={() => {onSubmit(testValues)}}
-                icon={<BiRocket size={18} />}
-            >
-                Send Score
-            </Button>
             <TypingArea
-                wpm={actualWPM}/>
+                wpm={actualWPM}
+                setWPM={setActualWPM}
+                gameDuration={gameDuration}
+                gameType={gameType}
+                setGameType={setGameType}
+                isTyping={isTyping}
+                setIsTyping={setIsTyping}/>
         </div>
     );
 };

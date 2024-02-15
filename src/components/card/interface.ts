@@ -8,4 +8,5 @@ export interface CardProps {
   creatorUser: string,
   creatorImage: string,
   className?: string;
+  index: number
 }

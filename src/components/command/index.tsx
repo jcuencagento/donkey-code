@@ -19,7 +19,7 @@ const data = [
     },
     {
         id: 3,
-        name: "Classification",
+        name: "Leaderboard",
         href: "/classification",
         icon: <BiTrophy />,
     },

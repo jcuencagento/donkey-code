@@ -5,7 +5,7 @@
 
 
 <p align="center">
-   <a href="https://github.com/jcuencagento/donkey-code/"><img align="center" src="./src/assets/images/donkey-code-hd.png" /></a>
+   <a href="https://donkey-code.vercel.app/"><img align="center" src="./src/assets/images/donkey-code-hd.png" /></a>
 </p>
 
 
@@ -18,7 +18,13 @@
 🧠 Inspired by [MonkeyType](https://monkeytype.com/).
 
 
-🔐 Interactive, store your progress with GitHub!
+🔐 Interactive, store your progress with GitHub.
+
+
+🏆 Check leaderboard and climb positions.
+
+
+🐍 Practice with coding languages as Python or JavaScript as well as normal languages as English or Spanish
 
 
 <br />

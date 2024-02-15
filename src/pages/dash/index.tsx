@@ -83,7 +83,7 @@ const Dashboard = () => {
             )}
             {scores && (
                 <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredScores?.map((score) => (
+                    {filteredScores?.map((score, index) => (
                         <Card
                             key={score.id}
                             id={score.id}
@@ -94,6 +94,7 @@ const Dashboard = () => {
                             creatorId={score.creatorId}
                             creatorUser={score.creatorUser}
                             creatorImage={score.creatorImage || avatar_image}
+                            index={index}
                         />
                     ))}
                 </div>

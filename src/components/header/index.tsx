@@ -17,8 +17,8 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center space-x-6">
                     <Auth />
-                    <Link aria-label="Classification" href="/classification">
-                        <IconButton aria-label="Classification" icon={<BiTrophy size={24} />} />
+                    <Link aria-label="Leaderboard" href="/classification">
+                        <IconButton aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
                     </Link>
                     <Theme />
                     <CommandMenu />

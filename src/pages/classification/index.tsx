@@ -2,17 +2,11 @@ import { useState } from "react";
 import { trpc } from "@/utils/trpc";
 import { useForm } from "react-hook-form";
 import { ScoreSchema } from "@/schema/score.schema";
-
 import { FilterScoreInput } from "@/schema/score.schema";
-
 import Loader from "@/motions/loader";
 import Card from "@/components/card";
 import ClassificationLayout from "@/layout/classification";
-
-import { BiRocket } from "react-icons/bi";
-
 import Alert from "@/ui/alert";
-import { Input } from "@/ui";
 
 const Classification = () => {
     const { register } = useForm<FilterScoreInput>();
@@ -38,7 +32,7 @@ const Classification = () => {
     if (!scoresData) {
         return (
             <div className="mt-8 flex flex-col items-center justify-center">
-                <p className="mb-2">Loading the classification...</p>
+                <p className="mb-2">Loading everyone scores...</p>
                 <Loader />
             </div>
         );
@@ -53,14 +47,14 @@ const Classification = () => {
             {isLoading && (
                 <>
                     <div className="mt-8 flex flex-col items-center justify-center">
-                        <p className="mb-2">Loading classification...</p>
+                        <p className="mb-2">Loading everyone scores...</p>
                         <Loader />
                     </div>
                 </>
             )}
             {scores && (
                 <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredScores?.map((score) => (
+                    {filteredScores?.map((score, index) => (
                         <Card
                             key={score.id}
                             id={score.id}
@@ -71,6 +65,7 @@ const Classification = () => {
                             creatorId={score.creatorId}
                             creatorUser={score.creatorUser}
                             creatorImage={score.creatorImage || avatar_image}
+                            index={index}
                         />
                     ))}
                 </div>
