@@ -7,6 +7,7 @@ import { Button } from "@/ui";
 import { BiRocket } from "react-icons/bi";
 import { useSession } from "next-auth/react";
 import GamesOptions from "../gamesoptions";
+import TypingArea from "../typingarea";
 
 const Test = () => {
     const [loading, setLoading] = useState(false);
@@ -48,13 +49,15 @@ const Test = () => {
     };
 
     return (
-        <div className="flex gap-4 align-center justify-center">
+        <div className="flex-col align-center justify-center">
             <GamesOptions
                 gameType={gameType}
                 gameDuration={gameDuration}
                 setGameType={setGameType}
                 setGameDuration={setGameDuration}/>
             <Button
+                aria-label="Submit"
+                className="m-auto"
                 isLoading={loading}
                 loadingText="Submitting your score..."
                 onClick={() => {onSubmit(testValues)}}
@@ -62,22 +65,8 @@ const Test = () => {
             >
                 Send Score
             </Button>
-            <div className="m-auto">
-                <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
-                <span style={{ display: 'inline-block'}}>T</span>
-                    <span
-                        style={{
-                            position: 'absolute',
-                            left: '-1.1px',
-                            height: '100%',
-                            width: '0.25vh',
-                            background: 'violet',
-                            animation: 'blinking 1s infinite'
-                        }}
-                    />
-                </span>
-                est area in development...
-            </div>
+            <TypingArea
+                wpm={actualWPM}/>
         </div>
     );
 };

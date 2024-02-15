@@ -42,12 +42,12 @@ const Auth = () => {
 
     if (status === "loading") {
         return (
-            <Button className="ml-2" disabled isLoading loadingText="Loading..." />
+            <Button aria-label="Loading" className="ml-2" disabled isLoading loadingText="Loading..." />
         );
     }
 
     if (status === "unauthenticated") {
-        return <LinkRoute href="/auth">Sign in</LinkRoute>;
+        return <LinkRoute aria-label="Auth" href="/auth">Sign in</LinkRoute>;
     }
 
     const avatar_image = "/img/avatar.png";
@@ -57,13 +57,13 @@ const Auth = () => {
             className="bg-transparent"
             icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={28} width={28} style={{ borderRadius: '50%' }} />}
         >
-            <Link href="/dash">
+            <Link aria-label="Type now" href="/">
                 <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
             </Link>
-            <Link href="/dash">
+            <Link aria-label="Dashboard" href="/dash">
                 <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
             </Link>
-            <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
+            <a aria-label="Report a bug" href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
                 <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
                 Report a bug
                 </DropdownItem>

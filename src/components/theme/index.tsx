@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import toast from "react-hot-toast";
 import { toastStyles } from "@/styles/toast";
-import { BiMoon } from "react-icons/bi";
+import { ImPaintFormat } from "react-icons/im";
 
 const Theme = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,13 +32,13 @@ const Theme = () => {
             setSelectedTheme(theme);
             toast(`Theme changed from ${selectedTheme} to ${theme}`, { icon: "⚡", style: toastStyles });
         }
-        
+
         setIsModalOpen(false);
     };
 
     return (
         <>
-            <BiMoon
+            <ImPaintFormat
                 size={22}
                 className="mr-4 cursor-pointer text-gray-100 transition duration-200 ease-in-out hover:scale-110 hover:transform"
                 onClick={toggleModal}
@@ -48,9 +48,9 @@ const Theme = () => {
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
                         <h2 className="text-lg font-semibold mb-4 text-gray-800 mb-4">Choose Theme (in development)</h2>
                         <div className="flex justify-between">
-                            <button onClick={() => handleThemeSelection("light")} className="px-4 py-2 bg-blue-400 text-white rounded-md mr-2 ml-2">Light</button>
-                            <button onClick={() => handleThemeSelection("dark")} className="px-4 py-2 bg-gray-800 text-white rounded-md mr-2 ml-2">Dark</button>
-                            <button onClick={() => handleThemeSelection("neutral")} className="px-4 py-2 bg-red-400 text-white rounded-md mr-2 ml-2">Neutral</button>
+                            <button aria-label="Light" onClick={() => handleThemeSelection("light")} className="px-4 py-2 bg-blue-400 text-white rounded-md mr-2 ml-2">Light</button>
+                            <button aria-label="Dark" onClick={() => handleThemeSelection("dark")} className="px-4 py-2 bg-gray-800 text-white rounded-md mr-2 ml-2">Dark</button>
+                            <button aria-label="Neutral" onClick={() => handleThemeSelection("neutral")} className="px-4 py-2 bg-red-400 text-white rounded-md mr-2 ml-2">Neutral</button>
                         </div>
                     </div>
                 </div>

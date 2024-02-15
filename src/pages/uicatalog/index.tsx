@@ -38,10 +38,10 @@ const uiCatalog = () => {
     return (
         <div className="flex-col p-10 w-[60%] m-auto">
             <div className="mb-8">
-                <Button onClick={toggleAlert}>Alerta</Button>
+                <Button aria-label="Alert" onClick={toggleAlert}>Alerta</Button>
             </div>
             <div className="flex gap-4 mb-8">
-                <IconButton icon={<BiAnchor size={22} />} />
+                <IconButton aria-label="Example" icon={<BiAnchor size={22} />} />
                 Ejemplo botón icono
             </div>
             <div className="mb-8">
@@ -54,10 +54,10 @@ const uiCatalog = () => {
             </div>
             <div className="mb-8">
                 <Dropdown title="Ejemplo Dropdown" className="bg-transparent">
-                    <Link href="/dash">
+                    <Link aria-label="Type now" href="/">
                         <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
                     </Link>
-                    <Link href="/dash">
+                    <Link aria-label="Dashboard" href="/dash">
                         <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
                     </Link>
                     <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">

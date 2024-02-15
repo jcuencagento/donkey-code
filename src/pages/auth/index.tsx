@@ -33,6 +33,7 @@ const Auth = () => {
             <div className="mt-16 flex flex-col items-center justify-center px-4">
                 <h1 className="mb-8 text-4xl">👋 Welcome</h1>
                 <Button
+                    aria-label="Sign in Github"
                     className="ml-4 bg-midnightLight"
                     onClick={handleSignIn}
                     isLoading={loading}

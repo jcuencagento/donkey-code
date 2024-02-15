@@ -38,8 +38,9 @@ const Contact = () => {
                         <div className="flex gap-4 justify-between align-center">
                             <Input id="email" defaultValue="jcuencagento@gmail.com" readOnly />
                             <IconButton
+                                aria-label="Clipboard"
                                 className="m-auto"
-                                icon={<BiClipboard size={28} />} 
+                                icon={<BiClipboard size={28} />}
                                 onClick={ () => {
                                     navigator.clipboard.writeText('jcuencagento@gmail.com');
                                     toast("Copied to clipboard.", { icon: "✂️", style: toastStyles });

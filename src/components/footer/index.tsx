@@ -19,14 +19,14 @@ const Footer = () => {
                         <p>Javier Cuenca Gento © {new Date().getFullYear()} Donkey Code</p>
                     </div>
                     <div className="flex gap-6">
-                        <Link href="/uicatalog">
+                        <Link aria-label="Catalog"  href="/uicatalog">
                             <BsCollection size={20} className="transition-colors duration-100 hover:text-white" />
                         </Link>
                         <Contact />
-                        <a href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
+                        <a aria-label="GitHub" href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
                             <BsGithub size={20} className="transition-colors duration-100 hover:text-white" />
                         </a>
-                        <a href="https://www.linkedin.com/in/javiercuencagento/" target="_blank" rel="noreferrer">
+                        <a aria-label="Linkedin" href="https://www.linkedin.com/in/javiercuencagento/" target="_blank" rel="noreferrer">
                             <BsLinkedin size={20} className="transition-colors duration-100 hover:text-white" />
                         </a>
                     </div>

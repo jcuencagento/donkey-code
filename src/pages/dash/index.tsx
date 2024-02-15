@@ -68,7 +68,7 @@ const Dashboard = () => {
                 <div className="mt-5 flex flex-col items-center justify-center">
                     <BiRocket className="mb-4 text-gray-400" size={64} />
                     <p className="mb-4 text-xl">Create your first score testing your skills...</p>
-                    <LinkRoute href="/" className="border border-gray-400">
+                    <LinkRoute aria-label="Play now!" href="/" className="border border-gray-400">
                         Play now!
                     </LinkRoute>
                 </div>
