@@ -11,7 +11,6 @@ import TypingArea from "../typingarea";
 
 const Test = () => {
     const [loading, setLoading] = useState(false);
-    const [testValues, setTestValues] = useState({ wpm: '0.0', gameType: 'JavaScript', gameDuration: '30' });
     const [isTyping, setIsTyping] = useState(false);
     const [actualWPM, setActualWPM] = useState('0.0');
     const [gameType, setGameType] = useState('JavaScript');
@@ -36,6 +35,7 @@ const Test = () => {
     });
 
     const onSubmit = (values: CreateScoreInput) => {
+        console.log(values);
         setLoading(true);
         if (session) {
             mutate(values);
@@ -50,7 +50,7 @@ const Test = () => {
 
     useEffect(() => {
         if (!isTyping && actualWPM !== '0.0') {
-            onSubmit(testValues);
+            onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString() });
         }
     }, [isTyping]);
 
@@ -62,8 +62,8 @@ const Test = () => {
                 setGameType={setGameType}
                 setGameDuration={setGameDuration}/>
             <TypingArea
-                wpm={actualWPM}
-                setWPM={setActualWPM}
+                actualWPM={actualWPM}
+                setActualWPM={setActualWPM}
                 gameDuration={gameDuration}
                 gameType={gameType}
                 setGameType={setGameType}

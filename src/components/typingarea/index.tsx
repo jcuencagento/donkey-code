@@ -3,7 +3,7 @@ import texts from '../../assets/texts.json';
 import { MdRestartAlt } from "react-icons/md";
 import Button from "@/ui/button";
 
-const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
+const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
     const [gameText, setGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
     const [nextGameText, setNextGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
     const [seconds, setSeconds] = useState(gameDuration);
@@ -18,7 +18,7 @@ const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
-        setWPM('0.0');
+        setActualWPM('0.0');
     }, [gameDuration]);
 
      /* Game Type change */
@@ -31,7 +31,7 @@ const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping
         setIncorrectChars(0);
         setGameText(texts[gameType][Math.floor(Math.random() * 60)]);
         setNextGameText(texts[gameType][Math.floor(Math.random() * 60)]);
-        setWPM('0.0');
+        setActualWPM('0.0');
     }, [gameType]);
 
     /* Test logic */
@@ -153,17 +153,13 @@ const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping
     /* WPM */
     useEffect(() => {
         const calculateWPM = () => {
-            if (gameDuration !== 'Inf') {
-                const timing = Number(gameDuration) - seconds + 0.01;
-                const newWPM = ((totalCorrectChars / 5) / (timing / 60)).toFixed(1);
-                setWPM(parseInt(newWPM) < 1000 ? newWPM : '0.0');
-            } else {
-                setWPM(totalCorrectChars);
-            }
+            const timing = Number(gameDuration) - seconds + 0.01;
+            const newWPM = ((totalCorrectChars / 5) / (timing / 60)).toFixed(1);
+            setActualWPM(parseInt(newWPM) < 1000 ? newWPM : '0.0');
         };
 
         calculateWPM();
-    }, [totalCorrectChars, seconds, gameDuration, isTyping, wpm]);
+    }, [totalCorrectChars, seconds, gameDuration, isTyping, actualWPM]);
 
     /* Restart */
     const resetTimer = () => {
@@ -174,18 +170,18 @@ const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
-        setWPM('0.0');
+        setActualWPM('0.0');
     };
 
     return (
-        <div className="flex flex-col w-full align-center justify-center m-auto mt-24 mb-6">
-            <h1 className="flex m-auto text-3xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
+        <div className="flex flex-col w-full align-center justify-center m-auto mt-12">
+            <h1 className="flex m-auto text-2xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
             <div className="flex gap-2 mb-8 mt-8 ml-20">
                 <p>
                     {seconds} seconds
                 </p>
                 <p>
-                    {wpm} WPM
+                    {actualWPM} WPM
                 </p>
             </div>
             <div className="m-auto mb-20 text-2xl">
@@ -193,7 +189,7 @@ const TypingArea = ({ wpm, setWPM, gameDuration, gameType, setGameType, isTyping
             </div>
                 <Button
                     aria-label="Restart"
-                    className="m-auto mt-32"
+                    className="m-auto mt-22"
                     icon={<MdRestartAlt size={32} />}
                     onClick={() => resetTimer()}>
                     Restart
