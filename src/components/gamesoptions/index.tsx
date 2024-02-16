@@ -31,7 +31,7 @@ const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration }) 
                 <DropdownItem icon={<RiEnglishInput size={17} />} onClick={() => setGameType('English')}>
                     English
                 </DropdownItem>
-                <DropdownItem icon={<GiSpain size={17} />} onClick={() => setGameType('Español')}>
+                <DropdownItem icon={<GiSpain size={17} />} onClick={() => setGameType('Spanish')}>
                     Español
                 </DropdownItem>
                 <DropdownItem icon={<BsChatRightQuote size={17} />} onClick={() => setGameType('Quotes')}>

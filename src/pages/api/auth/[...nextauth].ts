@@ -14,13 +14,16 @@ export const authOptions: NextAuthOptions = {
             clientSecret: env.GITHUB_CLIENT_SECRET || "",
             profile(profile) {
                 console.log(profile);
-                return {
+                const profile_sent = {
                     id: profile.id.toString(),
                     name: profile.name || profile.login,
                     username: profile.login,
                     email: profile.email,
                     image: profile.avatar_url,
                 };
+
+                console.log(profile_sent);
+                return profile_sent;
             },
         }),
         GoogleProvider({
@@ -28,13 +31,17 @@ export const authOptions: NextAuthOptions = {
             clientSecret: env.GOOGLE_CLIENT_SECRET || "",
             profile(profile) {
                 console.log(profile);
-                return {
-                    id: profile.id.toString(),
-                    name: profile.name || profile.login,
-                    username: profile.login,
+                const profile_sent = {
+                    id: profile.sub,
+                    name: profile.name || profile.email.replace('@gmail.com', ''),
+                    username: profile.email.replace('@gmail.com', ''),
                     email: profile.email,
-                    image: profile.avatar_url,
+                    emailVerified: profile.email_verified,
+                    image: profile.picture,
                 };
+
+                console.log(profile_sent);
+                return profile_sent;
             },
         }),
     ],
