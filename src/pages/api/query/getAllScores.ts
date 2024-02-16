@@ -17,7 +17,7 @@ async function getAllScores(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerAuthSession({ req, res });
     if (session) {
         try {
-            const scores = await prisma.score?.findMany({ take: 20 });
+            const scores = await prisma.score?.findMany({ take: 18 });
             return res.status(200).json(scores);
         } catch (error) {
             console.error("[X] Request error:", error);

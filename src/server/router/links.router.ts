@@ -12,8 +12,8 @@ export const linkRouter = router({
             data: {
                 ...input,
                 creatorId: ctx.session?.user?.id,
-                creatorUser: ctx.session?.user?.username,
-                creatorImage: ctx.session?.user?.image,
+                creatorUser: ctx.session?.user?.username || 'unknown',
+                creatorImage: ctx.session?.user?.image || './img/avatar.png',
             },
         });
         return newScore;
@@ -41,6 +41,6 @@ export const linkRouter = router({
 
    /* Get all scores (all users) */
     getAllScores: publicProcedure.query(({ ctx }) => {
-        return ctx.prisma.score?.findMany({ take: 20 });
+        return ctx.prisma.score?.findMany({ orderBy: { wpm: 'desc' }, take: 18 });
     }),
 });

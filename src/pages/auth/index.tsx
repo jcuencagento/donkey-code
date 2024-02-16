@@ -5,16 +5,22 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { BsGithub } from "react-icons/bs";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 
 const Auth = () => {
-    const [loading, setLoading] = useState(false);
+    const [loadingGitHub, setLoadingGitHub] = useState(false);
+    const [loadingGoogle, setLoadingGoogle] = useState(false);
 
-    const handleSignIn = async () => {
-        setLoading(true);
+    const handleSignIn = async (platform: string) => {
+        if (platform === 'github') {
+            setLoadingGitHub(true);
+        } else {
+            setLoadingGoogle(true);
+        }
+
         console.log('Sign In...')
         try {
-            await signIn("github", {
+            await signIn(platform, {
                 callbackUrl: "/dash",
             });
         } catch (error) {
@@ -32,16 +38,28 @@ const Auth = () => {
         <div className="container mx-auto">
             <div className="mt-16 flex flex-col items-center justify-center px-4">
                 <h1 className="mb-8 text-4xl">👋 Welcome</h1>
-                <Button
-                    aria-label="Sign in Github"
-                    className="ml-4 bg-midnightLight"
-                    onClick={handleSignIn}
-                    isLoading={loading}
-                    loadingText="Loading..."
-                    icon={<BsGithub size={17} />}
-                >
-                    Sign in with GitHub
-                </Button>
+                <div className="flex m-auto gap-6">
+                    <Button
+                        aria-label="Sign in Github"
+                        className="ml-4 bg-midnightLight"
+                        onClick={() => handleSignIn('github')}
+                        isLoading={loadingGitHub}
+                        loadingText="Loading..."
+                        icon={<BsGithub size={17} />}
+                    >
+                        Sign in with GitHub
+                    </Button>
+                    <Button
+                        aria-label="Sign in Google"
+                        className="ml-4 bg-midnightLight"
+                        onClick={() => handleSignIn('google')}
+                        isLoading={loadingGoogle}
+                        loadingText="Loading..."
+                        icon={<BsGoogle size={17} />}
+                    >
+                        Sign in with Google
+                    </Button>
+                </div>
             </div>
         </div>
     );
