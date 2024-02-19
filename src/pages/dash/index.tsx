@@ -8,7 +8,8 @@ import { ScoreSchema } from "@/schema/score.schema";
 import { FilterScoreInput } from "@/schema/score.schema";
 
 import Loader from "@/motions/loader";
-import Card from "@/components/card";
+import CardDash from "@/components/carddash";
+import CardUser from "@/components/carduser";
 import DashboardLayout from "@/layout/dashboard";
 
 import { BiRocket } from "react-icons/bi";
@@ -35,7 +36,7 @@ const Dashboard = () => {
     }
 
     const filteredScores = scoresData?.filter((score) => {
-        return score.wpm.toLowerCase().includes(searchScores.toLowerCase());
+        return score.gameType.toLowerCase().includes(searchScores.toLowerCase());
     });
 
     if (!scoresData) {
@@ -82,21 +83,29 @@ const Dashboard = () => {
                 </>
             )}
             {scores && (
-                <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredScores?.map((score, index) => (
-                        <Card
-                            key={score.id}
-                            id={score.id}
-                            gameType={score.gameType}
-                            gameDuration={score.gameDuration}
-                            wpm={score.wpm}
-                            createdAt={score.createdAt}
-                            creatorId={score.creatorId}
-                            creatorUser={score.creatorUser}
-                            creatorImage={score.creatorImage || avatar_image}
-                            index={index}
+                <div className="flex gap-6 align-center justify-center">
+                    <div className="w-[30%] h-[100%]">
+                        <CardUser
+                            scores={scores}
+                            creatorUser={scores[0]?.creatorUser || 'Yourself'}
+                            creatorImage={scores[0]?.creatorImage || avatar_image}
                         />
-                    ))}
+                    </div>
+                    <div className="w-[70%] mt-5 grid grid-cols-3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        {filteredScores?.slice(0, 9)?.map((score, index) => (
+                            <CardDash
+                                key={score.id}
+                                id={score.id}
+                                gameType={score.gameType}
+                                gameDuration={score.gameDuration}
+                                wpm={score.wpm}
+                                createdAt={score.createdAt}
+                                creatorId={score.creatorId}
+                                creatorUser={score.creatorUser}
+                                index={index}
+                            />
+                        ))}
+                    </div>
                 </div>
             )}
         </DashboardLayout>

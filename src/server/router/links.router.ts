@@ -22,6 +22,7 @@ export const linkRouter = router({
     /* Get all scores (one user) */
     getScores: publicProcedure.input(FilterScoreSchema).query(({ ctx, input }) => {
         return ctx.prisma.score?.findMany({
+            orderBy: { wpm: 'desc' },
             where: {
                 creatorId: ctx.session?.user?.id,
                 AND: input.filter
