@@ -1,8 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { CardDashProps } from "./interface";
+import CardDashSkeleton from "./skeleton";
 
 const CardDash = (props: CardDashProps) => {
     console.log(props);
+    if (!props.id) {
+        return <CardDashSkeleton />;
+    }
+
     return (
         <div className={`flex justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all hover:shadow-lg ${props.className}`}>
             <div className="w-[70%] m-4">

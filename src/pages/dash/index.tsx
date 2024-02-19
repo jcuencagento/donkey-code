@@ -9,6 +9,7 @@ import { FilterScoreInput } from "@/schema/score.schema";
 
 import Loader from "@/motions/loader";
 import CardDash from "@/components/carddash";
+import CardDashSkeleton from "@/components/carddash/skeleton";
 import CardUser from "@/components/carduser";
 import DashboardLayout from "@/layout/dashboard";
 
@@ -82,32 +83,34 @@ const Dashboard = () => {
                     </div>
                 </>
             )}
-            {scores && (
-                <div className="flex gap-6 align-center justify-center">
-                    <div className="w-[30%] h-[100%]">
-                        <CardUser
-                            scores={scores}
-                            creatorUser={scores[0]?.creatorUser || 'Yourself'}
-                            creatorImage={scores[0]?.creatorImage || avatar_image}
-                        />
-                    </div>
-                    <div className="w-[70%] mt-5 grid grid-cols-3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {filteredScores?.slice(0, 9)?.map((score, index) => (
-                            <CardDash
-                                key={score.id}
-                                id={score.id}
-                                gameType={score.gameType}
-                                gameDuration={score.gameDuration}
-                                wpm={score.wpm}
-                                createdAt={score.createdAt}
-                                creatorId={score.creatorId}
-                                creatorUser={score.creatorUser}
-                                index={index}
-                            />
-                        ))}
-                    </div>
+            <div className="flex gap-12">
+                <div className="mt-5 w-[30%] flex-grow h-auto">
+                    <CardUser
+                        scores={scores}
+                        creatorUser={scores[0]?.creatorUser || 'Yourself'}
+                        creatorImage={scores[0]?.creatorImage || avatar_image}
+                        no_scores={scores.length === 0}
+                    />
                 </div>
-            )}
+                <div className="w-[70%] mt-5 grid grid-cols-3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {filteredScores?.slice(0, 9)?.map((score, index) => (
+                        <CardDash
+                            key={score.id}
+                            id={score.id}
+                            gameType={score.gameType}
+                            gameDuration={score.gameDuration}
+                            wpm={score.wpm}
+                            createdAt={score.createdAt}
+                            creatorId={score.creatorId}
+                            creatorUser={score.creatorUser}
+                            index={index}
+                        />
+                    ))}
+                    {Array.from({ length: 9 - (filteredScores?.length || 0) }).map((_, index) => (
+                        <CardDashSkeleton />
+                    ))}
+                </div>
+            </div>
         </DashboardLayout>
     );
 };

@@ -4,4 +4,5 @@ export interface CardUserProps {
     scores: Array<ScoreSchema>,
     creatorUser: string,
     creatorImage: string,
+    no_scores: boolean
 }

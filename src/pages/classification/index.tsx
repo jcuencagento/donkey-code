@@ -26,7 +26,7 @@ const Classification = () => {
     }
 
     const filteredScores = scoresData?.filter((score) => {
-        return score.wpm.toLowerCase().includes(searchScores.toLowerCase());
+        return score.creatorUser.toLowerCase().includes(searchScores.toLowerCase());
     });
 
     if (!scoresData) {
@@ -53,22 +53,40 @@ const Classification = () => {
                 </>
             )}
             {scores && (
-                <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredScores?.map((score, index) => (
-                        <Card
-                            key={score.id}
-                            id={score.id}
-                            gameType={score.gameType}
-                            gameDuration={score.gameDuration}
-                            wpm={score.wpm}
-                            createdAt={score.createdAt}
-                            creatorId={score.creatorId}
-                            creatorUser={score.creatorUser}
-                            creatorImage={score.creatorImage || avatar_image}
-                            index={index}
-                        />
-                    ))}
-                </div>
+                <>
+                    <div className="mt-5 grid grid-cols-1 gap-5 grid-cols-3">
+                        {filteredScores?.slice(0, 3).map((score, index) => (
+                            <Card
+                                key={score.id}
+                                id={score.id}
+                                gameType={score.gameType}
+                                gameDuration={score.gameDuration}
+                                wpm={score.wpm}
+                                createdAt={score.createdAt}
+                                creatorId={score.creatorId}
+                                creatorUser={score.creatorUser}
+                                creatorImage={score.creatorImage || avatar_image}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                    <div className="mt-5 grid sm:grid-cols-4 lg:grid-cols-3 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+                        {filteredScores?.slice(3, 18).map((score) => (
+                            <Card
+                                key={score.id}
+                                id={score.id}
+                                gameType={score.gameType}
+                                gameDuration={score.gameDuration}
+                                wpm={score.wpm}
+                                createdAt={score.createdAt}
+                                creatorId={score.creatorId}
+                                creatorUser={score.creatorUser}
+                                creatorImage={score.creatorImage || avatar_image}
+                                index={4}
+                            />
+                        ))}
+                    </div>
+                </>
             )}
         </ClassificationLayout>
     );
