@@ -17,7 +17,7 @@ const Home: NextPage = () => {
                 </h3>
             </Up>
             <Up delay={0.4}>
-                <div style={{ width: '120vh'}}>
+                <div style={{ width: '120vh' }}>
                     <Test />
                 </div>
             </Up>

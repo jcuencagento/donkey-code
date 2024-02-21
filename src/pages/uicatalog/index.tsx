@@ -36,53 +36,60 @@ const uiCatalog = () => {
     }
 
     return (
-        <div className="flex-col p-10 w-[60%] m-auto">
-            <div className="mb-8">
-                <Button aria-label="Alert" onClick={toggleAlert}>Alerta</Button>
+        <div>
+            <div className="border-b-2 border-zinc-800 mt-1">
+                <div className="container pl-4 pr-4 md:pl-0 md:pr-0 mx-auto pb-3 flex items-center justify-around">
+                    <h1 className="text-2xl">Components Catalog</h1>
+                </div>
             </div>
-            <div className="flex gap-4 mb-8">
-                <IconButton aria-label="Example" icon={<BiAnchor size={22} />} />
-                Ejemplo botón icono
-            </div>
-            <div className="mb-8">
-                <Input
-                    id="filter"
-                    type="text"
-                    placeholder="Input example"
-                    onChange={() => {}}
-                />
-            </div>
-            <div className="mb-8">
-                <Dropdown title="Ejemplo Dropdown" className="bg-transparent">
-                    <Link aria-label="Type now" href="/">
-                        <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
-                    </Link>
-                    <Link aria-label="Dashboard" href="/dash">
-                        <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
-                    </Link>
-                    <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
-                        <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
-                        Report a bug
+            <div className="flex-col p-10 w-[60%] m-auto">
+                <div className="mb-8">
+                    <Button aria-label="Alert" onClick={toggleAlert}>Alerta</Button>
+                </div>
+                <div className="flex gap-4 mb-8">
+                    <IconButton aria-label="Example" icon={<BiAnchor size={22} />} />
+                    Ejemplo botón icono
+                </div>
+                <div className="mb-8">
+                    <Input
+                        id="filter"
+                        type="text"
+                        placeholder="Input example"
+                        onChange={() => {}}
+                    />
+                </div>
+                <div className="mb-8">
+                    <Dropdown title="Ejemplo Dropdown" className="bg-transparent">
+                        <Link aria-label="Type now" href="/">
+                            <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
+                        </Link>
+                        <Link aria-label="Dashboard" href="/dash">
+                            <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
+                        </Link>
+                        <a href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
+                            <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
+                            Report a bug
+                            </DropdownItem>
+                        </a>
+                        <DropdownItem icon={<BiExit size={17} />}>
+                            Sign Out
                         </DropdownItem>
-                    </a>
-                    <DropdownItem icon={<BiExit size={17} />}>
-                        Sign Out
-                    </DropdownItem>
-                </Dropdown>
-            </div>
-            <div className="mb-8">
-                <BiEqualizer
-                    size={22}
-                    className="mr-4 cursor-pointer text-gray-100 transition duration-200 ease-in-out hover:scale-110 hover:transform"
-                    onClick={toggleModal}
-                />
-                {isModalOpen && (
-                    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
-                        <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-800 mb-4">Modal example</h2>
+                    </Dropdown>
+                </div>
+                <div className="mb-8">
+                    <BiEqualizer
+                        size={22}
+                        className="mr-4 cursor-pointer text-gray-100 transition duration-200 ease-in-out hover:scale-110 hover:transform"
+                        onClick={toggleModal}
+                    />
+                    {isModalOpen && (
+                        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
+                            <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
+                                <h2 className="text-lg font-semibold mb-4 text-gray-800 mb-4">Modal example</h2>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -54,7 +54,7 @@ const Classification = () => {
             )}
             {scores && (
                 <>
-                    <div className="mt-5 grid grid-cols-1 gap-5 grid-cols-3">
+                    <div className="mt-5 grid gap-5 sm:grid-cols-3 grid-cols-1">
                         {filteredScores?.slice(0, 3).map((score, index) => (
                             <Card
                                 key={score.id}
@@ -70,7 +70,7 @@ const Classification = () => {
                             />
                         ))}
                     </div>
-                    <div className="mt-5 grid sm:grid-cols-4 lg:grid-cols-3 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+                    <div className="mt-5 grid sm:grid-rows-4 lg:grid-cols-3 gap-5 sm:grid-cols-3 lg:grid-cols-4">
                         {filteredScores?.slice(3, 18).map((score) => (
                             <Card
                                 key={score.id}
