@@ -83,8 +83,8 @@ const Dashboard = () => {
                     </div>
                 </>
             )}
-            <div className="flex gap-12">
-                <div className="mt-5 w-[30%] flex-grow h-auto">
+            <div className="flex flex-col lg:flex-row gap-12">
+                <div className="mt-5 lg:w-[30%] flex-grow h-auto">
                     <CardUser
                         scores={scores}
                         creatorUser={scores[0]?.creatorUser || 'Yourself'}
@@ -92,7 +92,7 @@ const Dashboard = () => {
                         no_scores={scores.length === 0}
                     />
                 </div>
-                <div className="w-[70%] mt-5 grid grid-cols-3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="lg:w-[70%] mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
                     {filteredScores?.slice(0, 9)?.map((score, index) => (
                         <CardDash
                             key={score.id}

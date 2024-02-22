@@ -22,7 +22,7 @@ const Footer = () => {
                 to open Commands
             </div>
             <div className="fixed bottom-0 mt-6 lg:mt-20 mb-6 w-full text-gray-500">
-                <div className="container mx-auto flex items-center justify-between">
+                <div className="container mx-auto flex items-center justify-around lg:justify-between">
                     <div className="flex items-center space-x-1">
                         <p style={ mobile ? { fontSize: '0.7em' } : { }}>Javier Cuenca Gento</p>
                         <Link aria-label="Privacy"  href="/privacy">

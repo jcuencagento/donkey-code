@@ -174,22 +174,18 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     };
 
     return (
-        <div className="flex flex-col w-full align-center justify-center m-auto mt-12">
-            <h1 className="flex m-auto text-2xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
-            <div className="flex gap-2 mb-8 mt-8 ml-20">
-                <p>
-                    {seconds} seconds
-                </p>
-                <p>
-                    {actualWPM} WPM
-                </p>
+        <div className="flex flex-col w-full align-center justify-center m-auto mt-6 lg:mt-12">
+            <h1 className="flex m-auto lg:text-2xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
+            <div className="flex align-center justify-around gap-2 mb-8 mt-8">
+                <p className="font-bold text-red-400">{seconds} seconds</p>
+                <p className="font-bold text-blue-400">{actualWPM} WPM</p>
             </div>
-            <div className="m-auto mb-20 text-2xl">
+            <div className="ml-12 lg:ml-64 mb-20 lg:text-2xl">
                 {getHighlightedText(currentIndex)}
             </div>
                 <Button
                     aria-label="Restart"
-                    className="m-auto mt-22"
+                    className="m-auto mt-22 bg-transparent"
                     icon={<MdRestartAlt size={32} />}
                     onClick={() => resetTimer()}>
                     Restart

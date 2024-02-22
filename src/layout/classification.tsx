@@ -4,7 +4,7 @@ interface ClassificationLayoutProps {
 
 const ClassificationLayout = (props: ClassificationLayoutProps) => {
     return (
-        <div className="mb-20">
+        <div className="pb-24 overflow-auto">
             <div className="border-b-2 border-zinc-800 mt-1">
                 <div className="container pl-4 pr-4 md:pl-0 md:pr-0 mx-auto pb-3 flex items-center justify-around">
                     <h1 className="text-2xl">Leaderboard</h1>

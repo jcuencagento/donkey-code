@@ -6,7 +6,7 @@ import { BsAirplane, BsAlarm, BsCarFront, BsKeyboard, BsRocketTakeoff, BsScooter
 
 const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration }) => {
     return (
-        <div className="flex w-3/5 align-center justify-between m-auto mt-2 mb-8">
+        <div className="flex w-4/5 lg:w-3/5 align-center justify-between m-auto mt-2 mb-4 lg:mb-10">
             <Dropdown title={`${gameDuration} seconds`} className="bg-transparent" icon={ <BsAlarm size={26} /> }>
                 <DropdownItem icon={<BsRocketTakeoff size={17} />} onClick={() => setGameDuration(30)}>
                     30 seconds

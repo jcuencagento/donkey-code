@@ -7,11 +7,11 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
     return (
-        <>
+        <div className="flex flex-col min-h-screen">
             <Header />
-            <div className="min-h-auto">{props.children}</div>
+            <div className="flex-grow overflow-y max-h-[calc(100vh-4rem)]">{props.children}</div>
             <Footer />
-        </>
+        </div>
     );
 };
 
