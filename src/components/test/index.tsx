@@ -13,7 +13,7 @@ const Test = () => {
     const [loading, setLoading] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [actualWPM, setActualWPM] = useState('0.0');
-    const [gameType, setGameType] = useState('JavaScript');
+    const [gameType, setGameType] = useState('English');
     const [gameDuration, setGameDuration] = useState(30);
     const { data: session } = useSession();
 

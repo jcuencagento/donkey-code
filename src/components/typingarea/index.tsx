@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import texts from '../../assets/texts.json';
-import { MdPinEnd, MdPlayArrow, MdPlayCircle, MdPlayLesson, MdRestartAlt, MdStop } from "react-icons/md";
+import { MdPlayArrow, MdRestartAlt } from "react-icons/md";
 import Button from "@/ui/button";
 
 const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
@@ -10,6 +10,13 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     const [currentIndex, setCurrentIndex] = useState(0);
     const [totalCorrectChars, setTotalCorrectChars] = useState(0);
     const [incorrectChars, setIncorrectChars] = useState(0);
+    const [mobile, setMobile] = useState(false);
+    const inputRef = useRef(null);
+
+    /* Mobile */
+    useEffect(() => {
+        setMobile(window.innerWidth < 620);
+    }, []);
 
     /* Game Duration change */
     useEffect(() => {
@@ -163,17 +170,16 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
 
     /* Start */
     const startTimer = () => {
+        if (mobile && inputRef.current) {
+            inputRef.current.focus();
+        }
+
         setSeconds(gameDuration);
         setIsTyping(true);
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
         setActualWPM('0.0');
-    };
-
-    /* Stop */
-    const stopTimer = () => {
-        setIsTyping(false);
     };
 
     /* Restart */
@@ -199,7 +205,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 {getHighlightedText(currentIndex)}
             </div>
             <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">
-                { !isTyping && (
+                {!isTyping && (
                     <Button
                         aria-label="Play"
                         className="mt-4 lg:mt-8 bg-transparent"
@@ -216,6 +222,13 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                     Restart
                 </Button>
             </div>
+            {mobile && (
+                <input
+                    ref={inputRef}
+                    type="text"
+                    style={{ position: 'absolute', left: '-9999px' }} // Hide input field off-screen
+                />
+            )}
         </div>
     );
 };

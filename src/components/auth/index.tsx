@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/ui";
 import { signOut, useSession } from "next-auth/react";
 import {
@@ -18,6 +18,11 @@ const Auth = () => {
     const { data: session, status } = useSession();
     const [disabled, setDisabled] = useState(false);
     const [closing, setClosing] = useState(false);
+    const [mobile, setMobile] = useState(false);
+
+    useEffect(() => {
+        setMobile(window.innerWidth < 620);
+    }, []);
 
     const handleLogout = async () => {
         setDisabled(true);
@@ -55,7 +60,7 @@ const Auth = () => {
         <Dropdown
             title={session?.user?.username}
             className="bg-transparent"
-            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={window?.innerWidth > 620 ? 28 : 80} width={window?.innerWidth > 620 ? 28 : 80} style={{ borderRadius: '50%' }} />}
+            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 56} width={!mobile ? 28 : 56} style={{ borderRadius: '50%' }} />}
         >
             <Link aria-label="Type now" href="/">
                 <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
