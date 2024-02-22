@@ -7,7 +7,6 @@ import Contact from "../contact";
 const Footer = () => {
     const [mobile, setMobile] = useState(false);
     useEffect(() => {
-        console.log(window.innerWidth);
         setMobile(window.innerWidth < 620);
     }, []);
 

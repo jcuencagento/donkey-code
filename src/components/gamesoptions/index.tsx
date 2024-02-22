@@ -6,8 +6,8 @@ import { BsAirplane, BsAlarm, BsCarFront, BsKeyboard, BsRocketTakeoff, BsScooter
 
 const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration }) => {
     return (
-        <div className="flex w-4/5 lg:w-3/5 align-center justify-between m-auto mt-2 mb-4 lg:mb-10">
-            <Dropdown title={`${gameDuration} seconds`} className="bg-transparent" icon={ <BsAlarm size={26} /> }>
+        <div className="flex w-full align-center justify-between lg:justify-around m-auto mt-2 mb-4 lg:mb-10">
+            <Dropdown title={`${gameDuration} seconds`} className="bg-transparent text-xs lg:text-lg" icon={ <BsAlarm size={26} /> }>
                 <DropdownItem icon={<BsRocketTakeoff size={17} />} onClick={() => setGameDuration(30)}>
                     30 seconds
                 </DropdownItem>
@@ -21,7 +21,7 @@ const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration }) 
                     120 seconds
                 </DropdownItem>
             </Dropdown>
-            <Dropdown title={`Type ${gameType}`} className="bg-transparent" icon={ <BsKeyboard size={30} /> }>
+            <Dropdown title={`Type ${gameType}`} className="bg-transparent text-xs lg:text-lg" icon={ <BsKeyboard size={30} /> }>
                 <DropdownItem icon={<TbBrandJavascript size={17} />} onClick={() => setGameType('JavaScript')}>
                     JavaScript
                 </DropdownItem>

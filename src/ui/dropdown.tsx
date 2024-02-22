@@ -25,7 +25,7 @@ export const Dropdown = (props: DropdownProps) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute p-1 right-2 mt-2 w-56 origin-top-right divide-y z-40 divide-gray-100 rounded-md bg-midnight border border-zinc-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute p-1 right-2 mt-2 w-36 lg:w-56 origin-top-right divide-y z-40 divide-gray-100 rounded-md bg-midnight border border-zinc-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">{props.children}</div>
         </Menu.Items>
       </Transition>
@@ -37,7 +37,7 @@ export const DropdownItem = (props: DropdownProps) => {
   return (
     <Menu.Item>
       <div
-        className={`cursor-pointer block justify-between rounded text-stone-200 px-3 py-2 text-sm hover:bg-midnightLight duration-200
+        className={`cursor-pointer block justify-between rounded text-stone-200 px-1 py-1 lg:px-3 lg:py-2 text-xs lg:text-sm hover:bg-midnightLight duration-200
         ${props.className}`}
         onClick={props.onClick}
       >

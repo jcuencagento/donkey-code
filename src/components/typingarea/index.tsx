@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import texts from '../../assets/texts.json';
-import { MdRestartAlt } from "react-icons/md";
+import { MdPinEnd, MdPlayArrow, MdPlayCircle, MdPlayLesson, MdRestartAlt, MdStop } from "react-icons/md";
 import Button from "@/ui/button";
 
 const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
@@ -161,6 +161,21 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         calculateWPM();
     }, [totalCorrectChars, seconds, gameDuration, isTyping, actualWPM]);
 
+    /* Start */
+    const startTimer = () => {
+        setSeconds(gameDuration);
+        setIsTyping(true);
+        setCurrentIndex(0);
+        setTotalCorrectChars(0);
+        setIncorrectChars(0);
+        setActualWPM('0.0');
+    };
+
+    /* Stop */
+    const stopTimer = () => {
+        setIsTyping(false);
+    };
+
     /* Restart */
     const resetTimer = () => {
         setIsTyping(false);
@@ -174,22 +189,33 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     };
 
     return (
-        <div className="flex flex-col w-full align-center justify-center m-auto mt-6 lg:mt-12">
+        <div className="flex flex-col w-full align-center justify-center m-auto mt-4 lg:mt-8">
             <h1 className="flex m-auto lg:text-2xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
             <div className="flex align-center justify-around gap-2 mb-8 mt-8">
                 <p className="font-bold text-red-400">{seconds} seconds</p>
                 <p className="font-bold text-blue-400">{actualWPM} WPM</p>
             </div>
-            <div className="ml-12 lg:ml-64 mb-20 lg:text-2xl">
+            <div className="ml-4 lg:ml-64 mb-20 lg:text-2xl">
                 {getHighlightedText(currentIndex)}
             </div>
+            <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">
+                { !isTyping && (
+                    <Button
+                        aria-label="Play"
+                        className="mt-4 lg:mt-8 bg-transparent"
+                        icon={<MdPlayArrow size={32} />}
+                        onClick={() => startTimer()}>
+                        Play
+                    </Button>
+                )}
                 <Button
                     aria-label="Restart"
-                    className="m-auto mt-22 bg-transparent"
+                    className="mt-4 lg:mt-8 bg-transparent"
                     icon={<MdRestartAlt size={32} />}
                     onClick={() => resetTimer()}>
                     Restart
                 </Button>
+            </div>
         </div>
     );
 };

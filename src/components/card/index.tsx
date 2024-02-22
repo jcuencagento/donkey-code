@@ -5,7 +5,7 @@ const Card = (props: CardProps) => {
     return (
         <div className={`flex justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all hover:shadow-lg ${props.className}`}>
             <div className="flex gap-4 align-center m-auto">
-                <img src={props.creatorImage} alt="Avatar" height={window.innerWidth > 620 ? 45 : 30} width={window.innerWidth > 620 ? 45 : 30} style={{ borderRadius: '50%' }}/>
+                <img src={props.creatorImage} alt="Avatar" height={window?.innerWidth > 620 ? 45 : 30} width={window?.innerWidth > 620 ? 45 : 30} style={{ borderRadius: '50%' }}/>
                 <p className="text-gray-200 m-auto">{props.creatorUser}</p>
             </div>
             <div className="w-[40%] m-4 mr-0">
@@ -17,13 +17,13 @@ const Card = (props: CardProps) => {
                 <p className="text-gray-400">Typing: {props.gameType}</p>
             </div>
             {props.index === 0 && (
-                <img src="./img/1st.svg" alt="First" style={ window.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/1st.svg" alt="First" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
             {props.index === 1 && (
-                <img src="./img/2nd.svg" alt="Second" style={ window.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/2nd.svg" alt="Second" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
             {props.index === 2 && (
-                <img src="./img/3rd.svg" alt="Third" style={ window.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/3rd.svg" alt="Third" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
         </div>
     );
