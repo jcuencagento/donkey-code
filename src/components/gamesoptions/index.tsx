@@ -4,7 +4,12 @@ import { RiEnglishInput  } from "react-icons/ri";
 import { GiSpain } from "react-icons/gi";
 import { BsAirplane, BsAlarm, BsCarFront, BsKeyboard, BsRocketTakeoff, BsScooter, BsChatRightQuote } from "react-icons/bs";
 
-const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration }) => {
+const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration, isTyping }) => {
+    if (isTyping) {
+        return(
+            <div className="flex w-full align-center justify-between lg:justify-around m-auto mt-8 mb-10 lg:mb-16"></div>
+        );
+    }
     return (
         <div className="flex w-full align-center justify-between lg:justify-around m-auto mt-2 mb-4 lg:mb-10">
             <Dropdown title={`${gameDuration} seconds`} className="bg-transparent text-xs lg:text-lg" icon={ <BsAlarm size={26} /> }>

@@ -113,7 +113,6 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         const currentChar = gameText[currentIndex + incorrectChars];
         const incorrectText = gameText.slice(currentIndex + (currentIndex > 0 ? 0 : incorrectChars), currentIndex + incorrectChars);
         const remainingText = gameText.slice(currentIndex + 1 + incorrectChars);
-
         return (
             <div>
                 <span style={{ color: 'green' }}>{correctText}</span>
@@ -134,6 +133,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 <span style={{ opacity: '0.7' }}>{nextGameText}</span>
             </div>
         );
+
     };
 
     /* Timer */
@@ -194,13 +194,20 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setActualWPM('0.0');
     };
 
+    console.log(1 - (seconds/gameDuration));
     return (
         <div className="flex flex-col w-full align-center justify-center m-auto mt-4 lg:mt-8">
-            <h1 className="flex m-auto lg:text-2xl text-purple-400">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
-            <div className="flex align-center justify-around gap-2 mb-8 mt-8">
-                <p className="font-bold text-red-400">{seconds} seconds</p>
-                <p className="font-bold text-blue-400">{actualWPM} WPM</p>
-            </div>
+            {!isTyping ? (
+                <h1 className="flex m-auto lg:text-2xl text-purple-400 mb-8 mt-8">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
+            ) : (
+                <div className="flex align-center justify-center gap-24 lg:gap-40 mb-8 mt-8">
+                    <p className="font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
+                    <div style={{ height: '18px' }} className="rounded-lg overflow-hidden">
+                        <progress value={1 - (seconds/gameDuration)} />
+                    </div>
+                    <p className="font-bold text-blue-400" style={{ width: '100px' }}>{actualWPM} WPM</p>
+                </div>
+            )}
             <div className="ml-4 lg:ml-64 mb-20 lg:text-2xl">
                 {getHighlightedText(currentIndex)}
             </div>
