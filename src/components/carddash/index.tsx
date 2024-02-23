@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import IconButton from "@/ui/iconButton";
+import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { MdPhoneIphone } from "react-icons/md";
 import { CardDashProps } from "./interface";
 import CardDashSkeleton from "./skeleton";
 
@@ -10,7 +13,7 @@ const CardDash = (props: CardDashProps) => {
 
     return (
         <div className={`flex justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all hover:shadow-lg ${props.className}`}>
-            <div className="w-[70%] m-4">
+            <div className="w-[60%] m-4">
                 <div className="flex items-center">
                     <p className="text-xl text-gray-100 transition-all hover:text-gray-300">{props.wpm} WPM</p>
                 </div>
@@ -19,13 +22,63 @@ const CardDash = (props: CardDashProps) => {
                 <p className="text-gray-400">Typing: {props.gameType}</p>
             </div>
             {props.index === 0 && (
-                <img src="./img/1st.svg" alt="First" style={{ height: '35%', margin: 'auto', marginLeft: '0' }}/>
+                <div className="flex flex-col">
+                    <img src="./img/1st.svg" alt="First" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
+                    {props.mobile ? (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
+                        </div>
+                    ) : (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            At
+                            <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
+                        </div>
+                    )}
+                </div>
             )}
             {props.index === 1 && (
-                <img src="./img/2nd.svg" alt="Second" style={{ height: '35%', margin: 'auto', marginLeft: '0' }}/>
+                <div className="flex flex-col">
+                    <img src="./img/2nd.svg" alt="Second" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
+                    {props.mobile ? (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
+                        </div>
+                    ) : (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            At
+                            <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
+                        </div>
+                    )}
+                </div>
             )}
             {props.index === 2 && (
-                <img src="./img/3rd.svg" alt="Third" style={{ height: '35%', margin: 'auto', marginLeft: '0' }}/>
+                <div className="flex flex-col">
+                    <img src="./img/3rd.svg" alt="Third" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
+                    {props.mobile ? (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
+                        </div>
+                    ) : (
+                        <div className="flex gap-2 pt-2 text-gray-400">
+                            At
+                            <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
+                        </div>
+                    )}
+                </div>
+            )}
+            {props.index > 2 && (
+                <div className="flex m-auto text-gray-400">
+                    {props.mobile ? (
+                        <div className="flex gap-2">
+                            <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
+                        </div>
+                    ) : (
+                        <div className="flex gap-2">
+                            At
+                            <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
+                        </div>
+                    )}
+                </div>
             )}
         </div>
     );

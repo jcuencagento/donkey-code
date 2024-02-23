@@ -11,7 +11,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     const [totalCorrectChars, setTotalCorrectChars] = useState(0);
     const [incorrectChars, setIncorrectChars] = useState(0);
     const [mobile, setMobile] = useState(false);
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     /* Mobile */
     useEffect(() => {

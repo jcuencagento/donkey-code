@@ -15,7 +15,13 @@ const Test = () => {
     const [actualWPM, setActualWPM] = useState('0.0');
     const [gameType, setGameType] = useState('English');
     const [gameDuration, setGameDuration] = useState(30);
+    const [mobile, setMobile] = useState(false);
     const { data: session } = useSession();
+
+    /* Mobile */
+    useEffect(() => {
+        setMobile(window.innerWidth < 620);
+    }, []);
 
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
@@ -50,7 +56,7 @@ const Test = () => {
 
     useEffect(() => {
         if (!isTyping && actualWPM !== '0.0') {
-            onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString() });
+            onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString(), mobile: mobile });
         }
     }, [isTyping]);
 

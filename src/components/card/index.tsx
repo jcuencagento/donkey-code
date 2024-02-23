@@ -1,12 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
+import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { CardProps } from "./interface";
+import IconButton from "@/ui/iconButton";
+import { MdPhoneIphone } from "react-icons/md";
 
 const Card = (props: CardProps) => {
     return (
         <div className={`flex justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all hover:shadow-lg ${props.className}`}>
-            <div className="flex gap-4 align-center m-auto">
-                <img src={props.creatorImage} alt="Avatar" height={window?.innerWidth > 620 ? 45 : 30} width={window?.innerWidth > 620 ? 45 : 30} style={{ borderRadius: '50%' }}/>
-                <p className="text-gray-200 m-auto">{props.creatorUser}</p>
+            <div className="flex flex-col gap-4 m-auto">
+                <div className="flex gap-4 align-center m-auto">
+                    <img src={props.creatorImage} alt="Avatar" height={window?.innerWidth > 620 ? 45 : 30} width={window?.innerWidth > 620 ? 45 : 30} style={{ borderRadius: '50%' }}/>
+                    <p className="text-gray-200 m-auto">{props.creatorUser}</p>
+                </div>
+                {props.mobile ? (
+                    <div className="flex m-auto gap-2 pt-2 text-gray-400">
+                        <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
+                    </div>
+                ) : (
+                    <div className="flex m-auto gap-2 pt-2 text-gray-400">
+                        At
+                        <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
+                    </div>
+                )}
             </div>
             <div className="w-[40%] m-4 mr-0">
                 <div className="flex items-center">

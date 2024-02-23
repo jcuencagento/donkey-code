@@ -91,6 +91,7 @@ const Dashboard = () => {
                             gameType={score.gameType}
                             gameDuration={score.gameDuration}
                             wpm={score.wpm}
+                            mobile={score.mobile || false}
                             createdAt={score.createdAt}
                             creatorId={score.creatorId}
                             creatorUser={score.creatorUser}

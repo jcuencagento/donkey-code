@@ -3,6 +3,7 @@ export interface CardProps {
   gameType: string;
   gameDuration: string;
   wpm: string;
+  mobile: boolean,
   createdAt: Date,
   creatorId: string,
   creatorUser: string,

@@ -5,6 +5,7 @@ export const ScoreSchema = z.object({
     gameType: z.string(),
     gameDuration: z.string(),
     wpm: z.string(),
+    mobile: z.boolean(),
     createdAt: z.date(),
     creatorId: z.string(),
     creatorUser: z.string(),
@@ -14,7 +15,8 @@ export const ScoreSchema = z.object({
 export const CreateScoreSchema = z.object({
     gameType: z.string(),
     gameDuration: z.string(),
-    wpm: z.string()
+    wpm: z.string(),
+    mobile: z.boolean()
 });
 
 export type ScoreSchema = z.TypeOf<typeof ScoreSchema>

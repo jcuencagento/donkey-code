@@ -23,6 +23,7 @@ async function createNewScore(req: NextApiRequest, res: NextApiResponse) {
                     gameType: body.gameType,
                     gameDuration: body.gameDuration,
                     wpm: body.wpm,
+                    mobile: body.mobile,
                     createdAt: body.createdAt,
                     createdBy: body.createdBy,
                     creatorId: body.creatorId,

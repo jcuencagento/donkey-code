@@ -60,7 +60,7 @@ const Auth = () => {
         <Dropdown
             title={session?.user?.username}
             className="bg-transparent"
-            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 56} width={!mobile ? 28 : 56} style={{ borderRadius: '50%' }} />}
+            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 72} width={!mobile ? 28 : 72} style={{ borderRadius: '50%' }} />}
         >
             <Link aria-label="Type now" href="/">
                 <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>

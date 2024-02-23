@@ -18,6 +18,7 @@ model Score {
     creatorId       String
     creatorUser     String
     creatorImage    String
+    mobile          Boolean? @default(value: false)
 
     @@index(id)
 }
