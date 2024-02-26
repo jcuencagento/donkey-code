@@ -208,7 +208,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                     <p className="font-bold text-blue-400" style={{ width: '100px' }}>{actualWPM} WPM</p>
                 </div>
             )}
-            <div className="ml-4 lg:ml-64 mb-20 lg:text-2xl">
+            <div className="ml-4 lg:ml-32 xl:ml-44 mb-8 lg:mb-16 lg:text-2xl">
                 {getHighlightedText(currentIndex)}
             </div>
             <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">

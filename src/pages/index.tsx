@@ -9,9 +9,9 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import toast from "react-hot-toast";
 import Link from "@/components/link";
-import { Input } from "@/ui";
 import IconButton from "@/ui/iconButton";
 import { BiBox } from "react-icons/bi";
+import confetti from "canvas-confetti";
 
 const Home: NextPage = () => {
     const [loading, setLoading] = useState(false);
@@ -43,14 +43,15 @@ const Home: NextPage = () => {
         };
     }, []);
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
-
     /* Send score to database */
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
             setLoading(false);
+            confetti({
+                particleCount: 150,
+                spread: 180
+            });
+
             toast("Data stored successfully!", {
                 icon: "🥳",
                 style: toastStyles,
@@ -119,13 +120,13 @@ const Home: NextPage = () => {
             {isModalOpen && (
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
-                        <h2 className="text-lg font-bold mb-2 text-gray-800">Test done!</h2>
-                        <h6 className="text-sm font-light mb-6 text-gray-600">Performed WPM: {actualWPM}</h6>
+                        <h2 className="text-xl font-bold mb-2 text-gray-800">Test done!</h2>
+                        <h6 className="text-md font-semibold mb-6 text-gray-600">Performed WPM: {actualWPM}</h6>
                         <div className="flex gap-4 justify-between align-center">
                             <Link aria-label="Dashboard" href="/dash">
-                                <IconButton icon={<BiBox size={17} />} />
+                                <IconButton className="text-black" icon={<BiBox size={24} />} />
                             </Link>
-                            Go to see your dashboard
+                            <p className="text-black">Go to see your dashboard</p>
                         </div>
                     </div>
                 </div>

@@ -67,7 +67,7 @@ const CardUser = (props: CardUserProps) => {
             }
         });
 
-        if (mobileCount > Math.floor(scores.length / 2) + 1) {
+        if (mobileCount >= Math.floor(scores.length / 2) + 1) {
             return 'Mobile';
         } else {
             return 'PC';
@@ -104,12 +104,12 @@ const CardUser = (props: CardUserProps) => {
                 <p className="text-lg text-gray-400">Usual test time -&gt; {mostRepeatedGameDuration(props.scores)} seconds</p>
             </div>
             {MobileOrPC(props.scores) === 'PC' ? (
-                <div className="flex gap-4 mt-0 mb-4 m-auto lg:text-xl">
+                <div className="flex gap-4 mt-2 mb-4 m-auto lg:text-xl">
                     <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={32} />} />
                     Prefer PC
                 </div>
             ) : (
-                <div className="flex gap-4 mt-0 m-auto mb-4 lg:text-xl">
+                <div className="flex gap-4 mt-2 m-auto mb-4 lg:text-xl">
                     <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={32} />} />
                     Prefer Mobile
                 </div>

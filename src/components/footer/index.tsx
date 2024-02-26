@@ -11,7 +11,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <div className="fixed bottom-0 mt-6 mb-6 lg:mb-20 w-full text-gray-500">
+        <div className="fixed bottom-0 mt-6 mb-6 lg:mb-12 w-full text-gray-500">
             <div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-2">
                 <div className="flex items-center gap-1">
                     <span style={{ margin: '0', border: '1px solid #ccc', borderRadius: '4px', padding: '4px 8px', background: '#f0f0f0', fontSize: '10px' }}>Ctrl</span>
@@ -23,11 +23,11 @@ const Footer = () => {
             <div className="fixed bottom-0 mt-6 lg:mt-20 mb-6 w-full text-gray-500">
                 <div className="container mx-auto flex items-center justify-around lg:justify-between">
                     <div className="flex items-center space-x-1">
-                        <p style={ mobile ? { fontSize: '0.7em' } : { }}>Javier Cuenca Gento</p>
+                        <p style={ mobile ? { fontSize: '0.65em' } : { }}>Javier Cuenca Gento</p>
                         <Link aria-label="Privacy"  href="/privacy">
-                            <p style={ mobile ? { fontSize: '0.7em' } : { }}>© {new Date().getFullYear()}</p>
+                            <p style={ mobile ? { fontSize: '0.65em' } : { }}>© {new Date().getFullYear()}</p>
                         </Link>
-                        <p style={ mobile ? { fontSize: '0.7em' } : { }}>Donkey Code</p>
+                        <p style={ mobile ? { fontSize: '0.65em' } : { }}>Donkey Code</p>
                     </div>
                     <div className="flex gap-2 lg:gap-6">
                         <Link aria-label="Catalog"  href="/uicatalog">

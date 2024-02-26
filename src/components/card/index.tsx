@@ -14,6 +14,7 @@ const Card = (props: CardProps) => {
                 </div>
                 {props.mobile ? (
                     <div className="flex m-auto gap-2 pt-2 text-gray-400">
+                        At
                         <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                     </div>
                 ) : (
@@ -32,13 +33,13 @@ const Card = (props: CardProps) => {
                 <p className="text-gray-400">Typing: {props.gameType}</p>
             </div>
             {props.index === 0 && (
-                <img src="./img/1st.svg" alt="First" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/1st.svg" alt="First" style={ window?.innerWidth > 620 ? { height: '30%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
             {props.index === 1 && (
-                <img src="./img/2nd.svg" alt="Second" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/2nd.svg" alt="Second" style={ window?.innerWidth > 620 ? { height: '30%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
             {props.index === 2 && (
-                <img src="./img/3rd.svg" alt="Third" style={ window?.innerWidth > 620 ? { height: '35%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
+                <img src="./img/3rd.svg" alt="Third" style={ window?.innerWidth > 620 ? { height: '30%', margin: 'auto', marginLeft: '0' } : { height: '20%', margin: 'auto', marginLeft: '0' }}/>
             )}
         </div>
     );

@@ -22,6 +22,7 @@
     "@uiball/loaders": "^1.2.6",
     "@vercel/analytics": "^0.1.11",
     "@vercel/speed-insights": "^1.0.9",
+    "canvas-confetti": "^1.9.2",
     "framer-motion": "^10.9.1",
     "nanoid": "^3.3.6",
     "next": "^13.3.0",
