@@ -79,12 +79,12 @@ const CardUser = (props: CardUserProps) => {
             <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full`}>
                 <div className="flex flex-col justify-center gap-4 align-center m-auto">
                     <img src={props.creatorImage} alt="Avatar" height={95} width={95} style={{ margin: 'auto', borderRadius: '50%' }}/>
-                    <p className="text-gray-200 text-lg m-auto">{props.creatorUser}</p>
+                    <p className="text-primary text-lg m-auto">{props.creatorUser}</p>
                 </div>
                 <div className="flex flex-col justify-center align-center w-[90%] mt-4 m-auto">
-                    <p className="text-2xl text-gray-100 transition-all m-auto">Test yourself now!</p>
+                    <p className="text-2xl text-gray-100 transition-all m-auto text-primary">Test yourself now!</p>
                     <Link className="m-auto mt-4" aria-label="Type now" href="/">
-                        <IconButton aria-label="Open code" icon={<BiPlayCircle size={42} />} />
+                        <IconButton aria-label="Open code" className="text-primary" icon={<BiPlayCircle size={42} />} />
                     </Link>
                 </div>
             </div>
@@ -95,21 +95,21 @@ const CardUser = (props: CardUserProps) => {
         <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full`}>
             <div className="flex flex-col justify-center gap-4 align-center m-auto">
                 <img src={props.creatorImage} alt="Avatar" height={95} width={95} style={{ margin: 'auto', borderRadius: '50%' }}/>
-                <p className="text-gray-200 text-lg m-auto">{props.creatorUser}</p>
+                <p className="text-primary text-lg m-auto">{props.creatorUser}</p>
             </div>
             <div className="flex flex-col justify-center align-center w-[90%] mt-2 lg:mt-4 m-auto">
-                <p className="text-xl text-gray-100 transition-all m-auto">Average WPM -&gt; {calculateAverageWPM(props.scores).toFixed(2)}</p>
-                <p className="mt-2 text-lg text-gray-400">Total tests done -&gt; {props.scores.length}</p>
-                <p className="text-lg text-gray-400">Favourite typing -&gt; {mostRepeatedGameType(props.scores)}</p>
-                <p className="text-lg text-gray-400">Usual test time -&gt; {mostRepeatedGameDuration(props.scores)} seconds</p>
+                <p className="text-xl text-primary transition-all m-auto">Average WPM -&gt; {calculateAverageWPM(props.scores).toFixed(2)}</p>
+                <p className="mt-2 text-lg text-gray-600">Total tests done -&gt; {props.scores.length}</p>
+                <p className="text-lg text-gray-600">Favourite typing -&gt; {mostRepeatedGameType(props.scores)}</p>
+                <p className="text-lg text-gray-600">Usual test time -&gt; {mostRepeatedGameDuration(props.scores)} seconds</p>
             </div>
             {MobileOrPC(props.scores) === 'PC' ? (
-                <div className="flex gap-4 mt-2 mb-4 m-auto lg:text-xl">
+                <div className="flex gap-4 mt-2 mb-4 m-auto lg:text-xl text-primary">
                     <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={32} />} />
                     Prefer PC
                 </div>
             ) : (
-                <div className="flex gap-4 mt-2 m-auto mb-4 lg:text-xl">
+                <div className="flex gap-4 mt-2 m-auto mb-4 lg:text-xl text-primary">
                     <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={32} />} />
                     Prefer Mobile
                 </div>

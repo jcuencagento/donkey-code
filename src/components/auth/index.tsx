@@ -59,21 +59,21 @@ const Auth = () => {
     return (
         <Dropdown
             title={session?.user?.username}
-            className="bg-transparent"
+            className="bg-transparent text-primary"
             icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 72} width={!mobile ? 28 : 72} style={{ borderRadius: '50%' }} />}
         >
             <Link aria-label="Type now" href="/">
-                <DropdownItem icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
+                <DropdownItem className="text-primary" icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
             </Link>
             <Link aria-label="Dashboard" href="/dash">
-                <DropdownItem icon={<BiBox size={17} />}>Dashboard</DropdownItem>
+                <DropdownItem className="text-primary" icon={<BiBox size={17} />}>Dashboard</DropdownItem>
             </Link>
             <a aria-label="Report a bug" href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
-                <DropdownItem icon={<BiMessageSquareEdit size={17} />} external={true}>
+                <DropdownItem className="text-primary" icon={<BiMessageSquareEdit size={17} />} external={true}>
                 Report a bug
                 </DropdownItem>
             </a>
-            <DropdownItem icon={<BiExit size={17} />} onClick={handleLogout}>
+            <DropdownItem className="text-primary" icon={<BiExit size={17} />} onClick={handleLogout}>
                 Sign Out
             </DropdownItem>
         </Dropdown>

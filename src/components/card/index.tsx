@@ -10,15 +10,15 @@ const Card = (props: CardProps) => {
             <div className="flex flex-col gap-4 m-auto">
                 <div className="flex gap-4 align-center m-auto">
                     <img src={props.creatorImage} alt="Avatar" height={window?.innerWidth > 620 ? 45 : 30} width={window?.innerWidth > 620 ? 45 : 30} style={{ borderRadius: '50%' }}/>
-                    <p className="text-gray-200 m-auto">{props.creatorUser}</p>
+                    <p className="text-primary m-auto">{props.creatorUser}</p>
                 </div>
                 {props.mobile ? (
-                    <div className="flex m-auto gap-2 pt-2 text-gray-400">
+                    <div className="flex m-auto gap-2 pt-2 text-primary">
                         At
                         <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                     </div>
                 ) : (
-                    <div className="flex m-auto gap-2 pt-2 text-gray-400">
+                    <div className="flex m-auto gap-2 pt-2 text-primary">
                         At
                         <IconButton aria-label="PC" icon={<HiOutlineDesktopComputer size={22} />} />
                     </div>
@@ -26,7 +26,7 @@ const Card = (props: CardProps) => {
             </div>
             <div className="w-[40%] m-4 mr-0">
                 <div className="flex items-center">
-                    <p className="text-xl text-gray-100 transition-all hover:text-gray-300">{props.wpm} WPM</p>
+                    <p className="text-xl text-primary transition-all hover:text-gray-300">{props.wpm} WPM</p>
                 </div>
                 <p className="mt-2 text-gray-500">{props.createdAt?.toDateString()}</p>
                 <p className="mt-2 text-gray-500">{props.gameDuration} seconds</p>

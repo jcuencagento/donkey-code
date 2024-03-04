@@ -32,7 +32,7 @@ const Classification = () => {
     if (!scoresData) {
         return (
             <div className="mt-8 flex flex-col items-center justify-center">
-                <p className="mb-2">Loading everyone scores...</p>
+                <p className="mb-2 text-primary">Loading everyone scores...</p>
                 <Loader />
             </div>
         );
@@ -47,7 +47,7 @@ const Classification = () => {
             {isLoading && (
                 <>
                     <div className="mt-8 flex flex-col items-center justify-center">
-                        <p className="mb-2">Loading everyone scores...</p>
+                        <p className="mb-2 text-primary">Loading everyone scores...</p>
                         <Loader />
                     </div>
                 </>
@@ -67,6 +67,7 @@ const Classification = () => {
                                 creatorUser={score.creatorUser}
                                 creatorImage={score.creatorImage || avatar_image}
                                 index={index}
+                                mobile={score.mobile || false}
                             />
                         ))}
                     </div>
@@ -83,6 +84,7 @@ const Classification = () => {
                                 creatorUser={score.creatorUser}
                                 creatorImage={score.creatorImage || avatar_image}
                                 index={4}
+                                mobile={score.mobile || false}
                             />
                         ))}
                     </div>

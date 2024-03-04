@@ -18,7 +18,6 @@ const Auth = () => {
             setLoadingGoogle(true);
         }
 
-        console.log('Sign In...')
         try {
             await signIn(platform, {
                 callbackUrl: "/dash",

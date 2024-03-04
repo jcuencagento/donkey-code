@@ -14,9 +14,12 @@ import "@/styles/globals.css";
 import "superkey/styles.css";
 import Show from "@/motions/show";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // Layout =>
 import Layout from "@/layout";
+import Image from "next/image";
+import gradientImg from "../../public/img/gradient.webp";
 
 // SEO =>
 import { DefaultSeo } from "next-seo";
@@ -31,7 +34,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     router,
 }) => {
     return (
-        <>
+        <ThemeProvider disableTransitionOnChange enableSystem attribute="class" defaultTheme="system">
             <NextNProgress
                 color="#979797"
                 startPosition={0.3}
@@ -50,7 +53,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
             <Toaster position="bottom-center" reverseOrder={false} />
             <Analytics />
             <SpeedInsights />
-        </>
+            <Image
+                priority
+                alt="Gradient background"
+                className="absolute left-0 top-0 -z-10 w-full h-full -translate-x-1/2 object-cover md:left-1/2 lg:scale-100"
+                src={gradientImg}
+            />
+        </ThemeProvider>
     );
 };
 

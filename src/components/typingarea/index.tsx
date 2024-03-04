@@ -194,7 +194,6 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setActualWPM('0.0');
     };
 
-    console.log(1 - (seconds/gameDuration));
     return (
         <div className="flex flex-col w-full align-center justify-center m-auto mt-4 lg:mt-8">
             {!isTyping ? (
@@ -208,14 +207,14 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                     <p className="font-bold text-blue-400" style={{ width: '100px' }}>{actualWPM} WPM</p>
                 </div>
             )}
-            <div className="ml-4 lg:ml-32 xl:ml-44 mb-8 lg:mb-16 lg:text-2xl">
+            <div className="ml-4 lg:ml-32 xl:ml-44 mb-8 lg:mb-16 lg:text-2xl text-primary">
                 {getHighlightedText(currentIndex)}
             </div>
             <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">
                 {!isTyping && (
                     <Button
                         aria-label="Play"
-                        className="mt-4 lg:mt-8 bg-transparent"
+                        className="mt-4 lg:mt-8 bg-transparent text-primary"
                         icon={<MdPlayArrow size={32} />}
                         onClick={() => startTimer()}>
                         Play
@@ -223,7 +222,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 )}
                 <Button
                     aria-label="Restart"
-                    className="mt-4 lg:mt-8 bg-transparent"
+                    className="mt-4 lg:mt-8 bg-transparent text-primary"
                     icon={<MdRestartAlt size={32} />}
                     onClick={() => resetTimer()}>
                     Restart

@@ -35,7 +35,7 @@
  🙏🏼 Initiated with [Create Appncy](https://github.com/goncy/create-appncy). Auth inspired with [Pheralb slug](https://github.com/pheralb/slug).
 
 
- ⚒️ Going to use TypeScript, Next.js, Tailwind, shadcn, Vercel for hosting and database...
+ ⚒️ Going to use TypeScript, Next.js, Tailwind, shadcn, Vercel for hosting, Prisma database...
 
 
 > [!NOTE]

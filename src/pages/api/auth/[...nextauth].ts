@@ -13,7 +13,6 @@ export const authOptions: NextAuthOptions = {
             clientId: env.GITHUB_ID || "",
             clientSecret: env.GITHUB_CLIENT_SECRET || "",
             profile(profile) {
-                console.log(profile);
                 const profile_sent = {
                     id: profile.id.toString(),
                     name: profile.name || profile.login,
@@ -22,7 +21,6 @@ export const authOptions: NextAuthOptions = {
                     image: profile.avatar_url,
                 };
 
-                console.log(profile_sent);
                 return profile_sent;
             },
         }),
@@ -30,7 +28,6 @@ export const authOptions: NextAuthOptions = {
             clientId: env.GOOGLE_CLIENT_ID || "",
             clientSecret: env.GOOGLE_CLIENT_SECRET || "",
             profile(profile) {
-                console.log(profile);
                 const profile_sent = {
                     id: profile.sub,
                     name: profile.name || profile.email.replace('@gmail.com', ''),
@@ -40,7 +37,6 @@ export const authOptions: NextAuthOptions = {
                     image: profile.picture,
                 };
 
-                console.log(profile_sent);
                 return profile_sent;
             },
         }),

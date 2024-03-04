@@ -43,7 +43,7 @@ const Dashboard = () => {
     if (!scoresData) {
         return (
             <div className="mt-8 flex flex-col items-center justify-center">
-                <p className="mb-2">Loading your scores...</p>
+                <p className="mb-2 text-primary">Loading your scores...</p>
                 <Loader />
             </div>
         );
@@ -69,7 +69,7 @@ const Dashboard = () => {
             {isLoading && (
                 <>
                     <div className="mt-8 flex flex-col items-center justify-center">
-                        <p className="mb-2">Loading your scores...</p>
+                        <p className="mb-2 text-primary">Loading your scores...</p>
                         <Loader />
                     </div>
                 </>
