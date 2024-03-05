@@ -47,12 +47,12 @@ const Auth = () => {
 
     if (status === "loading") {
         return (
-            <Button aria-label="Loading" className="ml-2" disabled isLoading loadingText="Loading..." />
+            <Button aria-label="Loading" className="ml-2 text-primary" disabled isLoading loadingText="Loading..." />
         );
     }
 
     if (status === "unauthenticated") {
-        return <LinkRoute aria-label="Auth" href="/auth">Sign in</LinkRoute>;
+        return <LinkRoute aria-label="Auth" className="text-primary" href="/auth">Sign in</LinkRoute>;
     }
 
     const avatar_image = "/img/avatar.png";
@@ -63,18 +63,22 @@ const Auth = () => {
             icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 72} width={!mobile ? 28 : 72} style={{ borderRadius: '50%' }} />}
         >
             <Link aria-label="Type now" href="/">
-                <DropdownItem className="text-primary" icon={<BiPlayCircle size={17} />}>Type now</DropdownItem>
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiPlayCircle className="text-primary" size={17} />}>
+                    <p className="text-primary">Type now</p>
+                </DropdownItem>
             </Link>
             <Link aria-label="Dashboard" href="/dash">
-                <DropdownItem className="text-primary" icon={<BiBox size={17} />}>Dashboard</DropdownItem>
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiBox className="text-primary" size={17} />}>
+                    <p className="text-primary">Dashboard</p>
+                </DropdownItem>
             </Link>
             <a aria-label="Report a bug" href="https://github.com/jcuencagento/donkey-code/issues/new" target="_blank" rel="noreferrer">
-                <DropdownItem className="text-primary" icon={<BiMessageSquareEdit size={17} />} external={true}>
-                Report a bug
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMessageSquareEdit className="text-primary" size={17} />} external={true}>
+                    <p className="text-primary">Report a bug</p>
                 </DropdownItem>
             </a>
-            <DropdownItem className="text-primary" icon={<BiExit size={17} />} onClick={handleLogout}>
-                Sign Out
+            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiExit className="text-primary" size={17} />} onClick={handleLogout}>
+                <p className="text-primary">Sign out</p>
             </DropdownItem>
         </Dropdown>
     );

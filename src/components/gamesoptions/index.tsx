@@ -13,34 +13,34 @@ const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration, is
     return (
         <div className="flex w-full align-center justify-between lg:justify-around m-auto mt-2 mb-4 lg:mb-10">
             <Dropdown title={`${gameDuration} seconds`} className="bg-transparent text-xs lg:text-lg text-primary" icon={ <BsAlarm size={26} /> }>
-                <DropdownItem icon={<BsRocketTakeoff size={17} />} onClick={() => setGameDuration(30)}>
-                    30 seconds
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsRocketTakeoff className="text-primary" size={17} />} onClick={() => setGameDuration(30)}>
+                    <p className="text-primary">30 seconds</p>
                 </DropdownItem>
-                <DropdownItem icon={<BsAirplane size={17} />} onClick={() => setGameDuration(45)}>
-                    45 seconds
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsAirplane className="text-primary" size={17} />} onClick={() => setGameDuration(45)}>
+                    <p className="text-primary">45 seconds</p>
                 </DropdownItem>
-                <DropdownItem icon={<BsCarFront size={17} />} onClick={() => setGameDuration(60)}>
-                    60 seconds
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsCarFront className="text-primary" size={17} />} onClick={() => setGameDuration(60)}>
+                    <p className="text-primary">60 seconds</p>
                 </DropdownItem>
-                <DropdownItem icon={<BsScooter size={17} />} onClick={() => setGameDuration(120)}>
-                    120 seconds
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsScooter className="text-primary" size={17} />} onClick={() => setGameDuration(120)}>
+                    <p className="text-primary">120 seconds</p>
                 </DropdownItem>
             </Dropdown>
             <Dropdown title={`Type ${gameType}`} className="bg-transparent text-xs lg:text-lg text-primary" icon={ <BsKeyboard size={30} /> }>
-                <DropdownItem icon={<TbBrandJavascript size={17} />} onClick={() => setGameType('JavaScript')}>
-                    JavaScript
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandJavascript className="text-primary" size={17} />} onClick={() => setGameType('JavaScript')}>
+                    <p className="text-primary">JavaScript</p>
                 </DropdownItem>
-                <DropdownItem icon={<TbBrandPython size={17} />} onClick={() => setGameType('Python')}>
-                    Python
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandPython className="text-primary" size={17} />} onClick={() => setGameType('Python')}>
+                    <p className="text-primary">Python</p>
                 </DropdownItem>
-                <DropdownItem icon={<RiEnglishInput size={17} />} onClick={() => setGameType('English')}>
-                    English
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<RiEnglishInput className="text-primary" size={17} />} onClick={() => setGameType('English')}>
+                    <p className="text-primary">English</p>
                 </DropdownItem>
-                <DropdownItem icon={<GiSpain size={17} />} onClick={() => setGameType('Spanish')}>
-                    Español
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<GiSpain className="text-primary" size={17} />} onClick={() => setGameType('Spanish')}>
+                    <p className="text-primary">Spanish</p>
                 </DropdownItem>
-                <DropdownItem icon={<BsChatRightQuote size={17} />} onClick={() => setGameType('Quotes')}>
-                    Quotes
+                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsChatRightQuote className="text-primary" size={17} />} onClick={() => setGameType('Quotes')}>
+                    <p className="text-primary">Quotes</p>
                 </DropdownItem>
             </Dropdown>
         </div>

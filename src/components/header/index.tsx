@@ -18,12 +18,12 @@ const Header = () => {
                 <div className="flex items-center space-x-2 lg:space-x-6">
                     <Auth />
                     <Link aria-label="Leaderboard" href="/classification">
-                        <IconButton className="text-primary" aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
+                        <IconButton className="bg-transparent text-primary" aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
                     </Link>
                     <ThemeSwitch />
                     <CommandMenu />
                     <a aria-label="Open code" href="https://github.com/jcuencagento/donkey-code" rel="noreferrer" target="_blank">
-                        <IconButton className="text-primary" aria-label="Open code" icon={<BiCodeAlt size={26} />} />
+                        <IconButton className="bg-transparent text-primary" aria-label="Open code" icon={<BiCodeAlt size={26} />} />
                     </a>
                 </div>
             </div>

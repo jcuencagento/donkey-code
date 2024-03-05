@@ -30,9 +30,6 @@ const Footer = () => {
                         <p style={ mobile ? { fontSize: '0.65em' } : { }}>Donkey Code</p>
                     </div>
                     <div className="flex gap-2 lg:gap-6">
-                        <Link aria-label="Catalog"  href="/uicatalog">
-                            <BsCollection size={20} className="transition-colors duration-100 hover:text-white" />
-                        </Link>
                         <Contact />
                         <a aria-label="GitHub" href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
                             <BsGithub size={20} className="transition-colors duration-100 hover:text-white" />

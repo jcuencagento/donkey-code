@@ -77,24 +77,24 @@ const CommandMenu = () => {
                     setOpen(false);
                     router.push(`${action}`);
                 }}
-                className="border border-neutral-800 bg-midnight text-primary"
-                overlayClassName="bg-midnight/50">
+                className="border border-neutral-800 bg-background text-primary"
+                overlayClassName="bg-background/50">
                 <CommandInput
                     placeholder="Search..."
                     onChange={(e) => {
                         setValue(e.target.value);
                     }}
-                    className="border-b border-neutral-800 bg-midnight text-primary" />
+                    className="border-b border-neutral-800 bg-background text-primary" />
                 <CommandList className="border-none">
                     {filteredData.map((action) => (
                         <CommandOption
                             key={action.id}
                             value={action.href || ""}
-                            activeClassName="bg-gray-100 dark:bg-zinc-700/25"
+                            activeClassName="bg-gray-300 dark:bg-zinc-700/25"
                         >
                             <div className="flex items-center space-x-3 py-1 px-1">
-                                <div className="icon-size-8 flex-shrink-0">{action.icon}</div>
-                                <h1 className="text-gray-100">{action.name}</h1>
+                                <div className="icon-size-8 flex-shrink-0 text-primary">{action.icon}</div>
+                                <h1 className="text-gray-100 text-primary">{action.name}</h1>
                             </div>
                         </CommandOption>
                     ))}

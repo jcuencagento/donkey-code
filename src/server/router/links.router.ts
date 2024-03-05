@@ -42,6 +42,6 @@ export const linkRouter = router({
 
    /* Get all scores (all users) */
     getAllScores: publicProcedure.query(({ ctx }) => {
-        return ctx.prisma.score?.findMany({ orderBy: { wpm: 'desc' }, take: 15 });
+        return ctx.prisma.score?.findMany({ orderBy: { wpm: 'desc' } });
     }),
 });

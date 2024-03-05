@@ -76,7 +76,7 @@ const CardUser = (props: CardUserProps) => {
 
     if (props.no_scores) {
         return (
-            <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full`}>
+            <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full hover:shadow-lg`}>
                 <div className="flex flex-col justify-center gap-4 align-center m-auto">
                     <img src={props.creatorImage} alt="Avatar" height={95} width={95} style={{ margin: 'auto', borderRadius: '50%' }}/>
                     <p className="text-primary text-lg m-auto">{props.creatorUser}</p>
@@ -92,7 +92,7 @@ const CardUser = (props: CardUserProps) => {
     }
 
     return (
-        <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full`}>
+        <div className={`flex flex-col p-4 justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all w-full h-full hover:shadow-lg`}>
             <div className="flex flex-col justify-center gap-4 align-center m-auto">
                 <img src={props.creatorImage} alt="Avatar" height={95} width={95} style={{ margin: 'auto', borderRadius: '50%' }}/>
                 <p className="text-primary text-lg m-auto">{props.creatorUser}</p>
