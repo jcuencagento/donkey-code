@@ -31,7 +31,7 @@ const Dashboard = () => {
     const [searchTime, setSearchTime] = useState("all_time");
     const [searchType, setSearchType] = useState("");
     const [searchDuration, setSearchDuration] = useState('0');
-    const [searchDevice, setSearchDevice] = useState("all");
+    const [searchDevice, setSearchDevice] = useState("All");
 
     const avatar_image = "/img/avatar.png";
     const { data: scoresData, isLoading, error } = trpc.links.getScores.useQuery({ filter });
@@ -73,7 +73,7 @@ const Dashboard = () => {
                     type_scores = score.mobile === false;
                     break;
 
-                case "mobile":
+                case "Mobile":
                     type_scores = score.mobile === true;
                     break;
 
@@ -167,14 +167,14 @@ const Dashboard = () => {
                         </Dropdown>
                     </div>
                     <div className="flex m-auto">
-                        <Dropdown title={`${searchDevice === '' ? 'All' : searchDevice} devices`} className="bg-transparent text-primary m-auto" icon={ <BiDesktop size={22} /> }>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("all")}>
+                        <Dropdown title={`${searchDevice} devices`} className="bg-transparent text-primary m-auto" icon={ <BiDesktop size={22} /> }>
+                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("All")}>
                                 <p className="text-primary">All</p>
                             </DropdownItem>
                             <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiDesktop className="text-primary" size={17} />} onClick={() => setSearchDevice("PC")}>
                                 <p className="text-primary">Desktop</p>
                             </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMobile className="text-primary" size={17} />} onClick={() => setSearchDevice("mobile")}>
+                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMobile className="text-primary" size={17} />} onClick={() => setSearchDevice("Mobile")}>
                                 <p className="text-primary">Mobile</p>
                             </DropdownItem>
                         </Dropdown>

@@ -52,7 +52,7 @@ const Auth = () => {
     }
 
     if (status === "unauthenticated") {
-        return <LinkRoute aria-label="Auth" className="text-primary" href="/auth">Sign in</LinkRoute>;
+        return <LinkRoute aria-label="Auth" className="text-primary hover:text-orange-400" href="/auth">Sign in</LinkRoute>;
     }
 
     const avatar_image = "/img/avatar.png";

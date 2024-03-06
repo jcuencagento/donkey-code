@@ -32,10 +32,10 @@ const Footer = () => {
                     <div className="flex gap-2 lg:gap-6">
                         <Contact />
                         <a aria-label="GitHub" href="https://github.com/jcuencagento" target="_blank" rel="noreferrer">
-                            <BsGithub size={20} className="transition-colors duration-100 hover:text-white" />
+                            <BsGithub size={20} className="transition-colors duration-100 hover:text-primary" />
                         </a>
                         <a aria-label="Linkedin" href="https://www.linkedin.com/in/javiercuencagento/" target="_blank" rel="noreferrer">
-                            <BsLinkedin size={20} className="transition-colors duration-100 hover:text-white" />
+                            <BsLinkedin size={20} className="transition-colors duration-100 hover:text-primary" />
                         </a>
                     </div>
                 </div>

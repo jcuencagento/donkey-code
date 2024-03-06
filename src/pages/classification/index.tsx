@@ -24,7 +24,7 @@ const Classification = () => {
     const [searchTime, setSearchTime] = useState("all_time");
     const [searchType, setSearchType] = useState("");
     const [searchDuration, setSearchDuration] = useState("0");
-    const [searchDevice, setSearchDevice] = useState("all");
+    const [searchDevice, setSearchDevice] = useState("All");
 
     const avatar_image = "/img/avatar.png";
     const { data: scoresData, isLoading, error } = trpc.links.getAllScores.useQuery();

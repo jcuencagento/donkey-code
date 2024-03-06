@@ -29,7 +29,7 @@ const Contact = () => {
 
     return (
         <>
-            <BsMailbox size={20} className="transition-colors duration-100 hover:text-white cursor-pointer" onClick={toggleModal}/>
+            <BsMailbox size={20} className="transition-colors duration-100 hover:text-primary cursor-pointer" onClick={toggleModal}/>
             {isModalOpen && (
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
