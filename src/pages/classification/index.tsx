@@ -15,6 +15,7 @@ import { GiSpain } from "react-icons/gi";
 import { RiEnglishInput } from "react-icons/ri";
 import { TbGoGame, TbBrandJavascript, TbBrandPython } from "react-icons/tb";
 import CardDashSkeleton from "@/components/carddash/skeleton";
+import Up from "@/motions/up";
 
 const Classification = () => {
     const { register } = useForm<FilterScoreInput>();
@@ -104,94 +105,178 @@ const Classification = () => {
 
     return (
         <ClassificationLayout>
-            <div className="flex space-between my-4">
-                <div className="flex gap-8 w-2/3">
-                    <div className="flex gap-2 m-auto">
-                        <Button
-                            className={searchTime === 'all_time' ? "bg-transparent text-orange-400" : "bg-transparent text-primary"}
-                            icon={<BiCodeAlt size={26} />}
-                            onClick={() => { setSearchTime('all_time') }}
-                        >
-                            All time
-                        </Button>
-                        <Button
-                            className={searchTime === 'all_time' ? "bg-transparent text-primary" : "bg-transparent text-orange-400"}
-                            icon={<BiCodeAlt size={26} />}
-                            onClick={() => { setSearchTime('last_day') }}
-                        >
-                            Last day
-                        </Button>
+            {window?.innerWidth > 420 ? (
+                <div className="flex space-between my-4">
+                    <div className="flex gap-8 w-2/3">
+                        <div className="flex gap-2 m-auto">
+                            <Button
+                                className={searchTime === 'all_time' ? "bg-transparent text-orange-400" : "bg-transparent text-primary"}
+                                icon={<BiCodeAlt size={26} />}
+                                onClick={() => { setSearchTime('all_time') }}
+                            >
+                                All time
+                            </Button>
+                            <Button
+                                className={searchTime === 'all_time' ? "bg-transparent text-primary" : "bg-transparent text-orange-400"}
+                                icon={<BiCodeAlt size={26} />}
+                                onClick={() => { setSearchTime('last_day') }}
+                            >
+                                Last day
+                            </Button>
+                        </div>
+                        <div className="flex gap-2 m-auto">
+                            <Dropdown title={`Duration ${searchDuration === '0' ? 'all' : searchDuration}`} className="bg-transparent text-primary m-auto mt-1" icon={ <BsAlarm size={22} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDuration('0')}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsRocketTakeoff className="text-primary" size={17} />} onClick={() => setSearchDuration('30')}>
+                                    <p className="text-primary">30 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsAirplane className="text-primary" size={17} />} onClick={() => setSearchDuration('45')}>
+                                    <p className="text-primary">45 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsCarFront className="text-primary" size={17} />} onClick={() => setSearchDuration('60')}>
+                                    <p className="text-primary">60 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsScooter className="text-primary" size={17} />} onClick={() => setSearchDuration('120')}>
+                                    <p className="text-primary">120 seconds</p>
+                                </DropdownItem>
+                            </Dropdown>
+                            <Dropdown title={`${searchType === '' ? 'All' : searchType} typing`} className="bg-transparent text-primary m-auto" icon={ <BsKeyboard size={28} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchType('')}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandJavascript className="text-primary" size={17} />} onClick={() => setSearchType('JavaScript')}>
+                                    <p className="text-primary">JavaScript</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandPython className="text-primary" size={17} />} onClick={() => setSearchType('Python')}>
+                                    <p className="text-primary">Python</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<RiEnglishInput className="text-primary" size={17} />} onClick={() => setSearchType('English')}>
+                                    <p className="text-primary">English</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<GiSpain className="text-primary" size={17} />} onClick={() => setSearchType('Spanish')}>
+                                    <p className="text-primary">Spanish</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsChatRightQuote className="text-primary" size={17} />} onClick={() => setSearchType('Quotes')}>
+                                    <p className="text-primary">Quotes</p>
+                                </DropdownItem>
+                            </Dropdown>
+                        </div>
+                        <div className="flex m-auto">
+                            <Dropdown title={`${searchDevice === '' ? 'All' : searchDevice} devices`} className="bg-transparent text-primary m-auto" icon={ <BiDesktop size={22} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("")}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiDesktop className="text-primary" size={17} />} onClick={() => setSearchDevice("PC")}>
+                                    <p className="text-primary">Desktop</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMobile className="text-primary" size={17} />} onClick={() => setSearchDevice("Mobile")}>
+                                    <p className="text-primary">Mobile</p>
+                                </DropdownItem>
+                            </Dropdown>
+                        </div>
                     </div>
-                    <div className="flex gap-2 m-auto">
-                        <Dropdown title={`Duration ${searchDuration === '0' ? 'all' : searchDuration}`} className="bg-transparent text-primary m-auto mt-1" icon={ <BsAlarm size={22} /> }>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDuration('0')}>
-                                <p className="text-primary">All</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsRocketTakeoff className="text-primary" size={17} />} onClick={() => setSearchDuration('30')}>
-                                <p className="text-primary">30 seconds</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsAirplane className="text-primary" size={17} />} onClick={() => setSearchDuration('45')}>
-                                <p className="text-primary">45 seconds</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsCarFront className="text-primary" size={17} />} onClick={() => setSearchDuration('60')}>
-                                <p className="text-primary">60 seconds</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsScooter className="text-primary" size={17} />} onClick={() => setSearchDuration('120')}>
-                                <p className="text-primary">120 seconds</p>
-                            </DropdownItem>
-                        </Dropdown>
-                        <Dropdown title={`${searchType === '' ? 'All' : searchType} typing`} className="bg-transparent text-primary m-auto" icon={ <BsKeyboard size={28} /> }>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchType('')}>
-                                <p className="text-primary">All</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandJavascript className="text-primary" size={17} />} onClick={() => setSearchType('JavaScript')}>
-                                <p className="text-primary">JavaScript</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandPython className="text-primary" size={17} />} onClick={() => setSearchType('Python')}>
-                                <p className="text-primary">Python</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<RiEnglishInput className="text-primary" size={17} />} onClick={() => setSearchType('English')}>
-                                <p className="text-primary">English</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<GiSpain className="text-primary" size={17} />} onClick={() => setSearchType('Spanish')}>
-                                <p className="text-primary">Spanish</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsChatRightQuote className="text-primary" size={17} />} onClick={() => setSearchType('Quotes')}>
-                                <p className="text-primary">Quotes</p>
-                            </DropdownItem>
-                        </Dropdown>
-                    </div>
-                    <div className="flex m-auto">
-                        <Dropdown title={`${searchDevice === '' ? 'All' : searchDevice} devices`} className="bg-transparent text-primary m-auto" icon={ <BiDesktop size={22} /> }>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("")}>
-                                <p className="text-primary">All</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiDesktop className="text-primary" size={17} />} onClick={() => setSearchDevice("PC")}>
-                                <p className="text-primary">Desktop</p>
-                            </DropdownItem>
-                            <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMobile className="text-primary" size={17} />} onClick={() => setSearchDevice("Mobile")}>
-                                <p className="text-primary">Mobile</p>
-                            </DropdownItem>
-                        </Dropdown>
+                    <div className="w-1/3">
+                        <Input
+                            id="filter"
+                            type="text"
+                            placeholder="Search user..."
+                            {...register("filter")}
+                            onChange={(e) => { setSearchScores(e.target.value) }}
+                        />
                     </div>
                 </div>
-                <div className="w-1/3">
-                    <Input
-                        id="filter"
-                        type="text"
-                        placeholder="Search user..."
-                        {...register("filter")}
-                        onChange={(e) => { setSearchScores(e.target.value) }}
-                    />
+            ) : (
+                <div className="flex flex-col my-4">
+                    <div className="flex gap-0 w-full">
+                        <div className="flex gap-0 m-auto">
+                            <Button
+                                className={searchTime === 'all_time' ? "bg-transparent text-orange-400 text-xs" : "bg-transparent text-primary text-xs"}
+                                icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                                onClick={() => { setSearchTime('all_time') }}
+                            >
+                                All time
+                            </Button>
+                            <Button
+                                className={searchTime === 'all_time' ? "bg-transparent text-primary text-xs" : "bg-transparent text-orange-400 text-xs"}
+                                icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                                onClick={() => { setSearchTime('last_day') }}
+                            >
+                                Last day
+                            </Button>
+                        </div>
+                        <div className="flex gap-0 m-auto">
+                            <Dropdown title={`Duration ${searchDuration === '0' ? 'all' : searchDuration}`} className="bg-transparent text-primary text-xs m-auto mt-1" icon={ <BsAlarm size={window.innerWidth > 420 ? 22 : 14} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDuration('0')}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsRocketTakeoff className="text-primary" size={17} />} onClick={() => setSearchDuration('30')}>
+                                    <p className="text-primary">30 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsAirplane className="text-primary" size={17} />} onClick={() => setSearchDuration('45')}>
+                                    <p className="text-primary">45 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsCarFront className="text-primary" size={17} />} onClick={() => setSearchDuration('60')}>
+                                    <p className="text-primary">60 seconds</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsScooter className="text-primary" size={17} />} onClick={() => setSearchDuration('120')}>
+                                    <p className="text-primary">120 seconds</p>
+                                </DropdownItem>
+                            </Dropdown>
+                            <Dropdown title={`${searchType === '' ? 'All' : searchType} typing`} className="bg-transparent text-primary text-xs m-auto" icon={ <BsKeyboard size={window.innerWidth > 420 ? 28 : 18} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchType('')}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandJavascript className="text-primary" size={17} />} onClick={() => setSearchType('JavaScript')}>
+                                    <p className="text-primary">JavaScript</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbBrandPython className="text-primary" size={17} />} onClick={() => setSearchType('Python')}>
+                                    <p className="text-primary">Python</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<RiEnglishInput className="text-primary" size={17} />} onClick={() => setSearchType('English')}>
+                                    <p className="text-primary">English</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<GiSpain className="text-primary" size={17} />} onClick={() => setSearchType('Spanish')}>
+                                    <p className="text-primary">Spanish</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsChatRightQuote className="text-primary" size={17} />} onClick={() => setSearchType('Quotes')}>
+                                    <p className="text-primary">Quotes</p>
+                                </DropdownItem>
+                            </Dropdown>
+                        </div>
+                        <div className="flex m-auto">
+                            <Dropdown title={`${searchDevice === '' ? 'All' : searchDevice} devices`} className="bg-transparent text-primary text-xs m-auto" icon={ <BiDesktop size={window.innerWidth > 420 ? 22 : 14} /> }>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("")}>
+                                    <p className="text-primary">All</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiDesktop className="text-primary" size={17} />} onClick={() => setSearchDevice("PC")}>
+                                    <p className="text-primary">Desktop</p>
+                                </DropdownItem>
+                                <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiMobile className="text-primary" size={17} />} onClick={() => setSearchDevice("Mobile")}>
+                                    <p className="text-primary">Mobile</p>
+                                </DropdownItem>
+                            </Dropdown>
+                        </div>
+                    </div>
+                    <div className="w-full">
+                        <Input
+                            id="filter"
+                            type="text"
+                            placeholder="Search user..."
+                            {...register("filter")}
+                            onChange={(e) => { setSearchScores(e.target.value) }}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
             {isLoading && (
-                <>
+                <Up delay={0.2}>
                     <div className="mt-8 flex flex-col items-center justify-center">
                         <p className="mb-2 text-primary">Loading everyone scores...</p>
                         <Loader />
                     </div>
-                </>
+                </Up>
             )}
             {scores && (
                 <>

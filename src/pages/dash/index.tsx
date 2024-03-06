@@ -16,12 +16,13 @@ import DashboardLayout from "@/layout/dashboard";
 import { BiCodeAlt, BiDesktop, BiMobile, BiRocket } from "react-icons/bi";
 
 import Alert from "@/ui/alert";
-import { Button, Input } from "@/ui";
+import { Button } from "@/ui";
 import { Dropdown, DropdownItem } from "@/ui/dropdown";
 import { BsAlarm, BsRocketTakeoff, BsAirplane, BsCarFront, BsScooter, BsKeyboard, BsChatRightQuote } from "react-icons/bs";
 import { GiSpain } from "react-icons/gi";
 import { RiEnglishInput } from "react-icons/ri";
 import { TbBrandJavascript, TbBrandPython, TbGoGame } from "react-icons/tb";
+import Up from "@/motions/up";
 
 const Dashboard = () => {
     const { register } = useForm<FilterScoreInput>();
@@ -109,26 +110,26 @@ const Dashboard = () => {
 
     return (
         <DashboardLayout>
-            <div className="flex gap-6 my-6">
-                <div className="flex gap-8 w-full">
-                    <div className="flex gap-2 m-auto">
+            <div className="flex gap-0 lg:gap-6 my-4">
+                <div className="flex gap-0 lg:gap-8 w-full">
+                    <div className="flex gap-0 lg:gap-2 m-auto">
                         <Button
-                            className={searchTime === 'all_time' ? "bg-transparent text-orange-400" : "bg-transparent text-primary"}
-                            icon={<BiCodeAlt size={26} />}
+                            className={searchTime === 'all_time' ? "bg-transparent text-orange-400 text-xs lg:text-base" : "bg-transparent text-primary text-xs lg:text-base"}
+                            icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
                             onClick={() => { setSearchTime('all_time') }}
                         >
                             All time
                         </Button>
                         <Button
-                            className={searchTime === 'all_time' ? "bg-transparent text-primary" : "bg-transparent text-orange-400"}
-                            icon={<BiCodeAlt size={26} />}
+                            className={searchTime === 'all_time' ? "bg-transparent text-primary text-xs lg:text-base" : "bg-transparent text-orange-400 text-xs lg:text-base"}
+                            icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
                             onClick={() => { setSearchTime('last_day') }}
                         >
                             Last day
                         </Button>
                     </div>
-                    <div className="flex gap-2 m-auto">
-                        <Dropdown title={`Duration ${searchDuration === '0' ? 'all' : searchDuration}`} className="bg-transparent text-primary m-auto mt-1" icon={ <BsAlarm size={22} /> }>
+                    <div className="flex gap-0 lg:gap-2 m-auto">
+                        <Dropdown title={`Duration ${searchDuration === '0' ? 'all' : searchDuration}`} className="bg-transparent text-primary text-xs lg:text-base m-auto mt-1" icon={ <BsAlarm size={window.innerWidth > 420 ? 22 : 14} /> }>
                             <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDuration('0')}>
                                 <p className="text-primary">All</p>
                             </DropdownItem>
@@ -145,7 +146,7 @@ const Dashboard = () => {
                                 <p className="text-primary">120 seconds</p>
                             </DropdownItem>
                         </Dropdown>
-                        <Dropdown title={`${searchType === '' ? 'All' : searchType} typing`} className="bg-transparent text-primary m-auto" icon={ <BsKeyboard size={28} /> }>
+                        <Dropdown title={`${searchType === '' ? 'All' : searchType} typing`} className="bg-transparent text-primary text-xs lg:text-base m-auto" icon={ <BsKeyboard size={window.innerWidth > 420 ? 28 : 18} /> }>
                             <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchType('')}>
                                 <p className="text-primary">All</p>
                             </DropdownItem>
@@ -167,7 +168,7 @@ const Dashboard = () => {
                         </Dropdown>
                     </div>
                     <div className="flex m-auto">
-                        <Dropdown title={`${searchDevice} devices`} className="bg-transparent text-primary m-auto" icon={ <BiDesktop size={22} /> }>
+                        <Dropdown title={`${searchDevice} devices`} className="bg-transparent text-primary text-xs lg:text-base m-auto" icon={ <BiDesktop size={window.innerWidth > 420 ? 22 : 14} /> }>
                             <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<TbGoGame className="text-primary" size={17} />} onClick={() => setSearchDevice("All")}>
                                 <p className="text-primary">All</p>
                             </DropdownItem>
@@ -182,12 +183,12 @@ const Dashboard = () => {
                 </div>
             </div>
             {isLoading && (
-                <>
+                <Up delay={0.2}>
                     <div className="mt-8 flex flex-col items-center justify-center">
                         <p className="mb-2 text-primary">Loading your scores...</p>
                         <Loader />
                     </div>
-                </>
+                </Up>
             )}
             <div className="flex flex-col lg:flex-row gap-12">
                 <div className="mt-5 lg:w-[30%] flex-grow h-auto">

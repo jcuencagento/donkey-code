@@ -87,7 +87,7 @@ const Home: NextPage = () => {
     }, [isTyping]);
 
     return (
-        <div className="flex flex-col items-center justify-center pt-4 xl:pt-8 h-full overflow-hidden bg-gradient-to-r transition-all duration-100">
+        <div className="flex flex-col items-center justify-center pt-4 xl:pt-8 h-full overflow-hidden transition-all duration-100">
             {!isTyping && (
                 <Up>
                     <h1 className="text-2xl lg:text-4xl mb-2 lg:mb-5 text-primary">
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
                 </div>
             </Up>
             {isModalOpen && (
-                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
+                <div className="fixed top-0 left-0 w-full h-full bg-b bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
                         <h2 className="text-xl font-bold mb-2 text-gray-800">Test done!</h2>
                         <h6 className="text-md font-semibold mb-6 text-gray-600">Performed WPM: {actualWPM}</h6>

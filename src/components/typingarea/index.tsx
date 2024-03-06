@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import texts from '../../assets/texts.json';
 import { MdPlayArrow, MdRestartAlt } from "react-icons/md";
 import Button from "@/ui/button";
+import Up from "@/motions/up";
 
 const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
     const [gameText, setGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
@@ -114,7 +115,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         const incorrectText = gameText.slice(currentIndex + (currentIndex > 0 ? 0 : incorrectChars), currentIndex + incorrectChars);
         const remainingText = gameText.slice(currentIndex + 1 + incorrectChars);
         return (
-            <div>
+            <div className={isTyping ? "text-xl lg:text-5xl text-primary m-auto" : "text-base lg:text-3xl text-primary m-auto"}>
                 <span style={{ color: 'green' }}>{correctText}</span>
                 <span style={{ borderRadius: '0.5vh', backgroundColor: 'red' }}>{incorrectText}</span>
                 <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
@@ -197,17 +198,19 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     return (
         <div className="flex flex-col w-full align-center justify-center m-auto mt-4 lg:mt-8">
             {!isTyping ? (
-                <h1 className="flex m-auto lg:text-2xl text-purple-400 mb-8 mt-8">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
+                <h1 className="flex m-auto lg:text-2xl text-purple-400 mb-2 mt-2 lg:mb-8 lg:mt-8">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
             ) : (
-                <div className="flex align-center justify-center gap-24 lg:gap-40 mb-8 mt-8">
-                    <p className="font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
-                    <div style={{ height: '18px' }} className="rounded-lg overflow-hidden">
-                        <progress value={1 - (seconds/gameDuration)} />
+                <Up delay={0.2}>
+                    <div className="flex w-9/10 align-center justify-center gap-4 lg:gap-40 mb-8 mt-8">
+                        <p className="font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
+                        <div style={{ height: '18px' }} className="rounded-lg overflow-hidden">
+                            <progress value={1 - (seconds/gameDuration)} />
+                        </div>
+                        <p className="font-bold text-blue-400" style={{ width: '80px' }}>{actualWPM} WPM</p>
                     </div>
-                    <p className="font-bold text-blue-400" style={{ width: '100px' }}>{actualWPM} WPM</p>
-                </div>
+                </Up>
             )}
-            <div className="m-auto lg:text-2xl text-primary">
+            <div className="flex w-4/5 m-auto">
                 {getHighlightedText(currentIndex)}
             </div>
             <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">

@@ -10,7 +10,7 @@ const Up: FC<UpProps> = ({ children, delay }) => (
     <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 0.9 }}
-        style={{ display: 'flex', width: '80%', alignItems: 'center', justifyContent: 'center' }}
+        style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}
         transition={{
             duration: 0.4,
             delay: delay,

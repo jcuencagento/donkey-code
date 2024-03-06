@@ -5,7 +5,7 @@ export default class Document extends NextDocument {
         return (
             <Html lang="en">
                 <Head />
-                <body suppressHydrationWarning className="bg-midnight text-white text-custom font-sans">
+                <body suppressHydrationWarning className="bg-midnight text-primary text-custom font-sans">
                     <Main />
                     <NextScript />
                     <noscript>

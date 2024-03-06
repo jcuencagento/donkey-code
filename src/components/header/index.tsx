@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BiTrophy, BiCodeAlt } from "react-icons/bi";
+import { BiTrophy, BiCodeAlt, BiInfoCircle } from "react-icons/bi";
 import Auth from "@/components/auth";
 import IconButton from "@/ui/iconButton";
 import CommandMenu from "../command";
@@ -17,14 +17,14 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center space-x-2 lg:space-x-6">
                     <Auth />
+                    <Link aria-label="Info" href="/info">
+                        <IconButton className="bg-transparent text-primary" aria-label="Info" icon={<BiInfoCircle size={24} />} />
+                    </Link>
+                    <ThemeSwitch />
                     <Link aria-label="Leaderboard" href="/classification">
                         <IconButton className="bg-transparent text-primary" aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
                     </Link>
-                    <ThemeSwitch />
                     <CommandMenu />
-                    <a aria-label="Open code" href="https://github.com/jcuencagento/donkey-code" rel="noreferrer" target="_blank">
-                        <IconButton className="bg-transparent text-primary" aria-label="Open code" icon={<BiCodeAlt size={26} />} />
-                    </a>
                 </div>
             </div>
         </header>

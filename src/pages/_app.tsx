@@ -56,7 +56,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
             <Image
                 priority
                 alt="Gradient background"
-                className="absolute left-0 top-0 -z-10 w-full h-full -translate-x-1/2 object-cover md:left-1/2 lg:scale-100"
+                className="fixed left-0 top-0 z-[-10] w-full h-full object-cover"
                 src={gradientImg}
             />
         </ThemeProvider>

@@ -47,7 +47,7 @@ const Auth = () => {
 
     if (status === "loading") {
         return (
-            <Button aria-label="Loading" className="ml-2 text-primary" disabled isLoading loadingText="Loading..." />
+            <Button aria-label="Loading" className="bg-transparent ml-2 text-primary" disabled isLoading loadingText="Loading..." />
         );
     }
 
@@ -60,7 +60,7 @@ const Auth = () => {
         <Dropdown
             title={session?.user?.username}
             className="bg-transparent text-primary"
-            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 72} width={!mobile ? 28 : 72} style={{ borderRadius: '50%' }} />}
+            icon={<img src={session?.user?.image || avatar_image} alt="Avatar" height={!mobile ? 28 : 82} width={!mobile ? 28 : 82} style={{ borderRadius: '50%' }} />}
         >
             <Link aria-label="Type now" href="/">
                 <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BiPlayCircle className="text-primary" size={17} />}>
