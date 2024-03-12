@@ -17,6 +17,7 @@ const Home: NextPage = () => {
     const [loading, setLoading] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [actualWPM, setActualWPM] = useState('0.0');
+    const [lastWPM, setLastWPM] = useState('0.0');
     const [gameType, setGameType] = useState('English');
     const [gameDuration, setGameDuration] = useState(30);
     const [mobile, setMobile] = useState(false);
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
             setLoading(false);
+            setActualWPM('0.0');
             confetti({
                 particleCount: 150,
                 spread: 180
@@ -59,6 +61,7 @@ const Home: NextPage = () => {
         },
         onError: () => {
             setLoading(false);
+            setActualWPM('0.0');
             toast("Data not correctly stored...", {
                 icon: "😿",
                 style: toastStyles,
@@ -73,6 +76,7 @@ const Home: NextPage = () => {
             mutate(values);
         } else {
             setLoading(false);
+            setActualWPM('0.0');
             toast("Nice! Login to store your scores", {
                 icon: "😼",
                 style: toastStyles,
@@ -83,6 +87,7 @@ const Home: NextPage = () => {
     useEffect(() => {
         if (!isTyping && actualWPM !== '0.0') {
             onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString(), mobile: mobile });
+            setLastWPM(actualWPM);
         }
     }, [isTyping]);
 
@@ -121,7 +126,7 @@ const Home: NextPage = () => {
                 <div className="fixed top-0 left-0 w-full h-full bg-b bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
                         <h2 className="text-xl font-bold mb-2 text-gray-800">Test done!</h2>
-                        <h6 className="text-md font-semibold mb-6 text-gray-600">Performed WPM: {actualWPM}</h6>
+                        <h6 className="text-md font-semibold mb-6 text-gray-600">Performed WPM: {lastWPM}</h6>
                         <div className="flex gap-4 justify-between align-center">
                             <Link aria-label="Dashboard" href="/dash">
                                 <IconButton className="text-black" icon={<BiBox size={24} />} />

@@ -115,7 +115,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         const incorrectText = gameText.slice(currentIndex + (currentIndex > 0 ? 0 : incorrectChars), currentIndex + incorrectChars);
         const remainingText = gameText.slice(currentIndex + 1 + incorrectChars);
         return (
-            <div className={isTyping ? "text-xl lg:text-5xl text-primary m-auto" : "text-base lg:text-3xl text-primary m-auto"}>
+            <div className={isTyping ? "text-xl lg:text-4xl text-primary m-auto" : "text-base lg:text-3xl text-primary m-auto"}>
                 <span style={{ color: 'green' }}>{correctText}</span>
                 <span style={{ borderRadius: '0.5vh', backgroundColor: 'red' }}>{incorrectText}</span>
                 <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
@@ -146,6 +146,12 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                     if (prevSeconds === 0) {
                         clearInterval(intervalId);
                         setIsTyping(false);
+                        setGameText(texts[gameType][Math.floor(Math.random() * 60)]);
+                        setNextGameText(texts[gameType][Math.floor(Math.random() * 60)]);
+                        setSeconds(gameDuration);
+                        setCurrentIndex(0);
+                        setTotalCorrectChars(0);
+                        setIncorrectChars(0);
                     }
 
                     return prevSeconds > 0 ? prevSeconds - 1 : 0;
@@ -202,11 +208,11 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
             ) : (
                 <Up delay={0.2}>
                     <div className="flex w-9/10 align-center justify-center gap-4 lg:gap-40 mb-8 mt-8">
-                        <p className="font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
+                        <p className="lg:font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
                         <div style={{ height: '18px' }} className="rounded-lg overflow-hidden">
                             <progress value={1 - (seconds/gameDuration)} />
                         </div>
-                        <p className="font-bold text-blue-400" style={{ width: '80px' }}>{actualWPM} WPM</p>
+                        <p className="lg:font-bold text-blue-400" style={{ width: '90px' }}>{actualWPM} WPM</p>
                     </div>
                 </Up>
             )}

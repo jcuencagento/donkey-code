@@ -9,7 +9,7 @@ import ClassificationLayout from "@/layout/classification";
 import Alert from "@/ui/alert";
 import { Button, Input } from "@/ui";
 import { Dropdown, DropdownItem } from "@/ui/dropdown";
-import { BiCodeAlt, BiDesktop, BiMobile } from "react-icons/bi";
+import { BiCalendar, BiDesktop, BiMobile } from "react-icons/bi";
 import { BsAlarm, BsRocketTakeoff, BsAirplane, BsCarFront, BsScooter, BsKeyboard, BsChatRightQuote } from "react-icons/bs";
 import { GiSpain } from "react-icons/gi";
 import { RiEnglishInput } from "react-icons/ri";
@@ -111,14 +111,14 @@ const Classification = () => {
                         <div className="flex gap-2 m-auto">
                             <Button
                                 className={searchTime === 'all_time' ? "bg-transparent text-orange-400" : "bg-transparent text-primary"}
-                                icon={<BiCodeAlt size={26} />}
+                                icon={<BiCalendar size={24} />}
                                 onClick={() => { setSearchTime('all_time') }}
                             >
                                 All time
                             </Button>
                             <Button
                                 className={searchTime === 'all_time' ? "bg-transparent text-primary" : "bg-transparent text-orange-400"}
-                                icon={<BiCodeAlt size={26} />}
+                                icon={<BiCalendar size={24} />}
                                 onClick={() => { setSearchTime('last_day') }}
                             >
                                 Last day
@@ -193,14 +193,14 @@ const Classification = () => {
                         <div className="flex gap-0 m-auto">
                             <Button
                                 className={searchTime === 'all_time' ? "bg-transparent text-orange-400 text-xs" : "bg-transparent text-primary text-xs"}
-                                icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                                icon={<BiCalendar size={window.innerWidth > 420 ? 26 : 14} />}
                                 onClick={() => { setSearchTime('all_time') }}
                             >
                                 All time
                             </Button>
                             <Button
                                 className={searchTime === 'all_time' ? "bg-transparent text-primary text-xs" : "bg-transparent text-orange-400 text-xs"}
-                                icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                                icon={<BiCalendar size={window.innerWidth > 420 ? 26 : 14} />}
                                 onClick={() => { setSearchTime('last_day') }}
                             >
                                 Last day

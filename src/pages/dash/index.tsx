@@ -13,7 +13,7 @@ import CardDashSkeleton from "@/components/carddash/skeleton";
 import CardUser from "@/components/carduser";
 import DashboardLayout from "@/layout/dashboard";
 
-import { BiCodeAlt, BiDesktop, BiMobile, BiRocket } from "react-icons/bi";
+import { BiCalendar, BiDesktop, BiMobile } from "react-icons/bi";
 
 import Alert from "@/ui/alert";
 import { Button } from "@/ui";
@@ -115,14 +115,14 @@ const Dashboard = () => {
                     <div className="flex gap-0 lg:gap-2 m-auto">
                         <Button
                             className={searchTime === 'all_time' ? "bg-transparent text-orange-400 text-xs lg:text-base" : "bg-transparent text-primary text-xs lg:text-base"}
-                            icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                            icon={<BiCalendar size={window.innerWidth > 420 ? 26 : 14} />}
                             onClick={() => { setSearchTime('all_time') }}
                         >
                             All time
                         </Button>
                         <Button
                             className={searchTime === 'all_time' ? "bg-transparent text-primary text-xs lg:text-base" : "bg-transparent text-orange-400 text-xs lg:text-base"}
-                            icon={<BiCodeAlt size={window.innerWidth > 420 ? 26 : 14} />}
+                            icon={<BiCalendar size={window.innerWidth > 420 ? 26 : 14} />}
                             onClick={() => { setSearchTime('last_day') }}
                         >
                             Last day
