@@ -25,6 +25,7 @@ const CardDash = (props: CardDashProps) => {
                     <img src="./img/1st.svg" alt="First" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
                     {props.mobile ? (
                         <div className="flex gap-2 pt-2 text-primary">
+                            At
                             <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                         </div>
                     ) : (
@@ -40,6 +41,7 @@ const CardDash = (props: CardDashProps) => {
                     <img src="./img/2nd.svg" alt="Second" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
                     {props.mobile ? (
                         <div className="flex gap-2 pt-2 text-primary">
+                            At
                             <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                         </div>
                     ) : (
@@ -55,6 +57,7 @@ const CardDash = (props: CardDashProps) => {
                     <img src="./img/3rd.svg" alt="Third" style={{ height: '35%', marginTop: '1.5vh', marginLeft: '0' }}/>
                     {props.mobile ? (
                         <div className="flex gap-2 pt-2 text-primary">
+                            At
                             <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                         </div>
                     ) : (
@@ -69,6 +72,7 @@ const CardDash = (props: CardDashProps) => {
                 <div className="flex m-auto text-primary">
                     {props.mobile ? (
                         <div className="flex gap-2">
+                            At
                             <IconButton aria-label="Mobile" icon={<MdPhoneIphone size={22} />} />
                         </div>
                     ) : (

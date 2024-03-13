@@ -93,6 +93,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
             }
 
             if (!isTyping && (event.key === gameText[0] || event.key === 'Enter')) {
+                setSeconds(gameDuration);
                 setIsTyping(true);
                 if (event.key === gameText[0]) {
                     setTotalCorrectChars((prevCorrectChars) => prevCorrectChars + 1);
@@ -148,7 +149,6 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                         setIsTyping(false);
                         setGameText(texts[gameType][Math.floor(Math.random() * 60)]);
                         setNextGameText(texts[gameType][Math.floor(Math.random() * 60)]);
-                        setSeconds(gameDuration);
                         setCurrentIndex(0);
                         setTotalCorrectChars(0);
                         setIncorrectChars(0);
@@ -203,7 +203,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
 
     return (
         <div className="flex flex-col w-full align-center justify-center m-auto mt-4 lg:mt-8">
-            {!isTyping ? (
+            {false ? (
                 <h1 className="flex m-auto lg:text-2xl text-purple-400 mb-2 mt-2 lg:mb-8 lg:mt-8">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
             ) : (
                 <Up delay={0.2}>
@@ -220,7 +220,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 {getHighlightedText(currentIndex)}
             </div>
             <div className="flex flex-row justify-center align-center gap-2 lg:gap-10">
-                {!isTyping && (
+                {!isTyping && seconds > 0 && (
                     <Button
                         aria-label="Play"
                         className="mt-4 lg:mt-8 bg-transparent text-primary"

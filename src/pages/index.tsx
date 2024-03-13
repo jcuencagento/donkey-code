@@ -48,7 +48,6 @@ const Home: NextPage = () => {
     const { mutate } = trpc.links.createScore.useMutation({
         onSuccess: () => {
             setLoading(false);
-            setActualWPM('0.0');
             confetti({
                 particleCount: 150,
                 spread: 180
@@ -61,7 +60,6 @@ const Home: NextPage = () => {
         },
         onError: () => {
             setLoading(false);
-            setActualWPM('0.0');
             toast("Data not correctly stored...", {
                 icon: "😿",
                 style: toastStyles,
@@ -76,7 +74,6 @@ const Home: NextPage = () => {
             mutate(values);
         } else {
             setLoading(false);
-            setActualWPM('0.0');
             toast("Nice! Login to store your scores", {
                 icon: "😼",
                 style: toastStyles,
