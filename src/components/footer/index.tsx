@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Link from "next/link";
-import { BsCollection, BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import Contact from "../contact";
 import { BiCodeAlt } from 'react-icons/bi';
 

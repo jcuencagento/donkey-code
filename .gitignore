@@ -42,3 +42,6 @@ yarn-error.log*
 
 # Github funding
 .github
+
+# Database migration
+/donkey-code-db/
