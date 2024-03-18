@@ -37,24 +37,24 @@ const Auth = () => {
         <div className="container mx-auto">
             <div className="mt-16 flex flex-col items-center justify-center px-4">
                 <h1 className="mb-8 text-4xl text-primary">👋 Welcome</h1>
-                <div className="flex m-auto gap-6">
+                <div className="flex flex-col lg:flex-row m-auto gap-6">
                     <Button
                         aria-label="Sign in Github"
-                        className="ml-4 bg-midnightLight"
+                        className="ml-4 text-xl bg-transparent"
                         onClick={() => handleSignIn('github')}
                         isLoading={loadingGitHub}
                         loadingText="Loading..."
-                        icon={<BsGithub size={17} />}
+                        icon={<BsGithub size={24} />}
                     >
                         Sign in with GitHub
                     </Button>
                     <Button
                         aria-label="Sign in Google"
-                        className="ml-4 bg-midnightLight"
+                        className="ml-4 text-xl bg-transparent"
                         onClick={() => handleSignIn('google')}
                         isLoading={loadingGoogle}
                         loadingText="Loading..."
-                        icon={<BsGoogle size={17} />}
+                        icon={<BsGoogle size={24} />}
                     >
                         Sign in with Google
                     </Button>

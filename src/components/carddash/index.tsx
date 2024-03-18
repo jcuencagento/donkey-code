@@ -14,7 +14,7 @@ const CardDash = (props: CardDashProps) => {
         <div className={`flex justify-between align-center rounded-lg border border-zinc-800 bg-midnight transition-all hover:shadow-lg ${props.className}`}>
             <div className="w-[60%] m-4">
                 <div className="flex items-center">
-                    <p className="text-xl text-primary transition-all hover:text-gray-300">{props.wpm} WPM</p>
+                    <p className="text-xl text-primary transition-all hover:text-orange-400">{props.wpm} WPM</p>
                 </div>
                 <p className="mt-2 text-gray-600">{props.createdAt?.toDateString()}</p>
                 <p className="mt-2 text-gray-600">{props.gameDuration} seconds</p>

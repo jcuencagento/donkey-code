@@ -11,7 +11,7 @@ const GamesOptions = ({ gameType, gameDuration, setGameType, setGameDuration, is
         );
     }
     return (
-        <div className="flex w-full align-center justify-between lg:justify-around m-auto mt-2 mb-4 lg:mb-10">
+        <div className="flex w-full align-center justify-around m-auto mt-2 mb-4 lg:mb-10">
             <Dropdown title={`${gameDuration} seconds`} className="bg-transparent text-xs lg:text-lg text-primary" icon={ <BsAlarm size={26} /> }>
                 <DropdownItem className="bg-background hover:bg-gray-500 text-primary" icon={<BsRocketTakeoff className="text-primary" size={17} />} onClick={() => setGameDuration(30)}>
                     <p className="text-primary">30 seconds</p>
