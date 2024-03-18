@@ -1,11 +1,11 @@
 ## Donkey Code
 
 
-🫏 Coding and typing speed and trust test.
+⌨️ Coding and typing speed and trust test.
 
 
 <p align="center">
-   <a href="https://donkey-code.vercel.app/"><img align="center" src="./src/assets/images/donkey-code-hd.png" /></a>
+   <a href="https://donkey-code.vercel.app/"><img align="center" src="https://github.com/jcuencagento/portfolio/blob/master/public/donkeycode_project_HD.webp" /></a>
 </p>
 
 
@@ -31,6 +31,9 @@
 <br />
 <br />
 
+<p align="center">
+   <a href="https://donkey-code.vercel.app/"><img align="center" src="./src/assets/images/donkey-code-hd.png" /></a>
+</p>
 
  🙏🏼 Initiated with [Create Appncy](https://github.com/goncy/create-appncy). Auth inspired with [Pheralb slug](https://github.com/pheralb/slug).
 
