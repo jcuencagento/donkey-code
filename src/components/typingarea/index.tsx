@@ -116,7 +116,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         const incorrectText = gameText.slice(currentIndex + (currentIndex > 0 ? 0 : incorrectChars), currentIndex + incorrectChars);
         const remainingText = gameText.slice(currentIndex + 1 + incorrectChars);
         return (
-            <div className={isTyping ? "text-xl lg:text-4xl text-primary m-auto" : "text-base lg:text-3xl text-primary m-auto"}>
+            <div className={isTyping ? "text-xl xl:text-4xl text-primary m-auto" : "text-base xl:text-3xl text-primary m-auto"}>
                 <span style={{ color: 'green' }}>{correctText}</span>
                 <span style={{ borderRadius: '0.5vh', backgroundColor: 'red' }}>{incorrectText}</span>
                 <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'pre-wrap' }}>
