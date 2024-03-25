@@ -1,26 +1,21 @@
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
+    const slug = req.nextUrl.pathname.split("/").pop();
+    const data = await fetch(`${req.nextUrl.origin}/api/url/${slug}`);
 
-  // Get pathname:
-  const slug = req.nextUrl.pathname.split("/").pop();
+    // Return (/) if not found (404):
+    if (data.status === 404) {
+        return NextResponse.redirect(req.nextUrl.origin);
+    }
 
-  // Get data from query:
-  const data = await fetch(`${req.nextUrl.origin}/api/url/${slug}`);
+    const dataToJson = await data.json();
 
-  // Return (/) if not found (404):
-  if (data.status === 404) {
-    return NextResponse.redirect(req.nextUrl.origin);
-  }
-
-  // Convert data to JSON:
-  const dataToJson = await data.json();
-
-  if (data?.url) {
-    return NextResponse.redirect(new URL(dataToJson.url));
-  }
+    if (data?.url) {
+        return NextResponse.redirect(new URL(dataToJson.url));
+    }
 }
 
 export const config = {
-  matcher: "/s/:slug*",
+    matcher: "/s/:slug*",
 };

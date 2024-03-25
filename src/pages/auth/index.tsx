@@ -64,23 +64,17 @@ const Auth = () => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  ctx: GetServerSidePropsContext
-) => {
-  const session = await getServerAuthSession(ctx);
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+    const session = await getServerAuthSession(ctx);
+    if (session) {
+        return {
+            redirect: { destination: "/dash", permanent: false, },
+        };
+    }
 
-  if (session) {
     return {
-      redirect: {
-        destination: "/dash",
-        permanent: false,
-      },
+        props: { session },
     };
-  }
-
-  return {
-    props: { session },
-  };
 };
 
 export default Auth;

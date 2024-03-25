@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { BiBox, BiCommand, BiMessageSquareEdit, BiPlayCircle, BiTrophy } from "react-icons/bi";
+import { BiBox, BiCommand, BiMessageSquareEdit, BiPlayCircle, BiTrophy, BiInfoCircle } from "react-icons/bi";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { Command, CommandInput, CommandList, CommandOption } from "superkey";
 
@@ -19,24 +19,30 @@ const data = [
     },
     {
         id: 3,
+        name: "Information",
+        href: "/info",
+        icon: <BiInfoCircle />,
+    },
+    {
+        id: 4,
         name: "Leaderboard",
         href: "/classification",
         icon: <BiTrophy />,
     },
     {
-        id: 4,
+        id: 5,
         name: "Report a bug",
         href: "https://github.com/jcuencagento/donkey-code/issues/new",
         icon: <BiMessageSquareEdit />,
     },
     {
-        id: 5,
+        id: 6,
         name: "Repository",
         href: "https://github.com/jcuencagento/donkey-code",
         icon: <BsGithub />,
     },
     {
-        id: 6,
+        id: 7,
         name: "Linkedin",
         href: "https://www.linkedin.com/in/javiercuencagento/",
         icon: <BsLinkedin />,

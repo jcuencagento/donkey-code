@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BiTrophy, BiCodeAlt, BiInfoCircle } from "react-icons/bi";
+import { BiTrophy, BiInfoCircle } from "react-icons/bi";
 import Auth from "@/components/auth";
 import IconButton from "@/ui/iconButton";
 import CommandMenu from "../command";
