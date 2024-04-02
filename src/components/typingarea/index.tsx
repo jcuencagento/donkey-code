@@ -3,6 +3,7 @@ import texts from '../../assets/texts.json';
 import { MdPlayArrow, MdRestartAlt } from "react-icons/md";
 import Button from "@/ui/button";
 import Up from "@/motions/up";
+import { Progress } from 'rsuite';
 
 const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
     const [gameText, setGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
@@ -207,12 +208,10 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 <h1 className="flex m-auto lg:text-2xl text-purple-400 mb-2 mt-2 lg:mb-8 lg:mt-8">Still in <p className="ml-2 text-red-300"> development </p>... wait for it</h1>
             ) : (
                 <Up delay={0.2}>
-                    <div className="flex w-9/10 align-center justify-center gap-4 lg:gap-40 mb-8 mt-8">
-                        <p className="lg:font-bold text-red-400" style={{ width: '100px' }}>{seconds} seconds</p>
-                        <div style={{ height: '18px' }} className="rounded-lg overflow-hidden">
-                            <progress value={1 - (seconds/gameDuration)} />
-                        </div>
-                        <p className="lg:font-bold text-blue-400" style={{ width: '90px' }}>{actualWPM} WPM</p>
+                    <div className="flex w-9/10 lg:w-3/5 align-center justify-center gap-4 lg:gap-40 mb-8 lg:mb-20 mt-8 m-auto">
+                        <p className="lg:font-bold text-red-400 m-auto" style={{ width: "20vh" }}>{seconds} seconds</p>
+                        <Progress.Line percent={(1 - (seconds/gameDuration))*100} showInfo={false} strokeWidth={10} strokeColor={"green"} style={{ margin: "auto" }}/>
+                        <p className="lg:font-bold text-blue-400 m-auto" style={{ width: "20vh" }}>{actualWPM} WPM</p>
                     </div>
                 </Up>
             )}

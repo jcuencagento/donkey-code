@@ -36,6 +36,7 @@
     "react-hook-form": "^7.43.8",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
+    "rsuite": "^5.58.1",
     "superjson": "^1.12.2",
     "superkey": "^0.2.2",
     "zod": "^3.21.4"

@@ -11,10 +11,12 @@ import { SessionProvider } from "next-auth/react";
 
 // Styles =>
 import "@/styles/globals.css";
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import "superkey/styles.css";
 import Show from "@/motions/show";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CustomProvider } from 'rsuite';
 
 // Layout =>
 import Layout from "@/layout";
