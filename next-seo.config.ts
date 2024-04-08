@@ -10,17 +10,12 @@ const nextSeoConfig = {
         },
         {
             rel: "apple-touch-icon",
-            href: "/img/apple-touch-icon-180x180.png",
-            sizes: "180x180",
+            href: "/img/icon-192x192.png",
+            sizes: "192x192",
         },
         {
             rel: "apple-touch-icon",
-            href: "/img/apple-touch-icon-152x152.png",
-            sizes: "152x152",
-        },
-        {
-            rel: "apple-touch-icon",
-            href: "/img/apple-touch-icon-114x114.png",
+            href: "/img/icon-114x114.png",
             sizes: "114x114",
         },
         {
@@ -37,6 +32,7 @@ const nextSeoConfig = {
     ],
     openGraph: {
         site_name: "donkey-code",
+        description: "Typing test and game interactive and persistent",
         url: "https://donkey-code.vercel.app/",
         type: "website",
         locale: "en_IE",

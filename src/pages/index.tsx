@@ -92,19 +92,19 @@ const Home: NextPage = () => {
         <div className="flex flex-col items-center justify-center pt-4 xl:pt-8 h-full overflow-hidden transition-all duration-100">
             {!isTyping && (
                 <Up>
-                    <h1 className="text-2xl xl:text-4xl mb-2 xl:mb-5 text-primary">
+                    <h1 className="text-2xl xl:text-4xl mb-1 xl:mb-4 text-primary">
                         Typing test and practice
                     </h1>
                 </Up>
             )}
             {!isTyping ? (
                 <Up delay={0.2}>
-                    <h3 className="text-sm xl:text-2xl align-center justify-center mb-6 xl:mb-10 text-primary/70">
+                    <h3 className="text-sm xl:text-2xl align-center justify-center mb-4 xl:mb-8 text-primary/70">
                         move your hands!
                     </h3>
                 </Up>
             ) : (
-                <div className="mt-8 mb-8 xl:mt-16 xl:mb-16"></div>
+                <div className="mt-6 mb-6 xl:mt-14 xl:mb-16"></div>
             )}
             <Up delay={0.4}>
                 <div className="w-full">

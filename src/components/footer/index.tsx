@@ -25,7 +25,7 @@ const Footer = () => {
                 <div className="container mx-auto flex items-center justify-around lg:justify-between">
                     <div className="flex flex-col lg:flex-row items-center space-x-1">
                         <p style={ mobile ? { fontSize: '0.65em' } : { }}>Javier Cuenca Gento</p>
-                        <div className='flex gap-1 lg:gap-2'>
+                        <div className='flex gap-1 lg:gap-1.5'>
                             <Link aria-label="Privacy"  href="/privacy">
                                 <p style={ mobile ? { fontSize: '0.65em' } : { }}>© {new Date().getFullYear()}</p>
                             </Link>
