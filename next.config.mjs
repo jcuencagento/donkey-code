@@ -15,6 +15,11 @@ function defineNextConfig(config) {
 export default defineNextConfig({
     reactStrictMode: true,
     swcMinify: true,
+    images: {
+        domains: [
+            'media.giphy.com'
+        ],
+    },
     i18n: {
         locales: ["en"],
         defaultLocale: "en",

@@ -17,6 +17,9 @@ const Home: NextPage = () => {
     const [loading, setLoading] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const [actualWPM, setActualWPM] = useState('0.0');
+    const [totalCorrectChars, setTotalCorrectChars] = useState(0);
+    const [totalIncorrectChars, setTotalIncorrectChars] = useState(0);
+    const [lastPercentage, setLastPercentage] = useState(0);
     const [lastWPM, setLastWPM] = useState('0.0');
     const [gameType, setGameType] = useState('English');
     const [gameDuration, setGameDuration] = useState(30);
@@ -84,7 +87,14 @@ const Home: NextPage = () => {
     useEffect(() => {
         if (!isTyping && actualWPM !== '0.0') {
             onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString(), mobile: mobile });
+            console.log('Finished');
+            console.log('actualWPM', actualWPM);
+            console.log('totalIncorrectChars', totalIncorrectChars);
+            console.log('totalCorrectChars', totalCorrectChars);
+            const correctPercentage: number = totalCorrectChars / (totalCorrectChars + totalIncorrectChars + 0.01) * 100;
+            console.log('correctPercentage', correctPercentage);
             setLastWPM(actualWPM);
+            setLastPercentage(correctPercentage);
         }
     }, [isTyping]);
 
@@ -113,6 +123,9 @@ const Home: NextPage = () => {
                         setIsTyping={setIsTyping}
                         actualWPM={actualWPM}
                         setActualWPM={setActualWPM}
+                        totalCorrectChars={totalCorrectChars}
+                        setTotalCorrectChars={setTotalCorrectChars}
+                        setTotalIncorrectChars={setTotalIncorrectChars}
                         gameType={gameType}
                         setGameType={setGameType}
                         gameDuration={gameDuration}
@@ -123,7 +136,8 @@ const Home: NextPage = () => {
                 <div className="fixed top-0 left-0 w-full h-full bg-b bg-opacity-60 flex justify-center items-center" style={{ marginLeft: '0' }}>
                     <div ref={modalRef} className="flex-col bg-white p-8 rounded-lg justify-center align-center m-auto">
                         <h2 className="text-xl font-bold mb-2 text-gray-800">Test done!</h2>
-                        <h6 className="text-md font-semibold mb-6 text-gray-600">Performed WPM: {lastWPM}</h6>
+                        <h6 className="text-md font-semibold mb-4 text-gray-600">Performed WPM: {lastWPM}</h6>
+                        <p className="text-md mb-6 text-gray-600">You had {lastPercentage}% of typing success!</p>
                         <div className="flex gap-4 justify-between align-center">
                             <Link aria-label="Dashboard" href="/dash">
                                 <IconButton className="text-black" icon={<BiBox size={24} />} />

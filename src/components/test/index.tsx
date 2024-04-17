@@ -1,7 +1,7 @@
 import GamesOptions from "../gamesoptions";
 import TypingArea from "../typingarea";
 
-const Test = ({ isTyping, setIsTyping, actualWPM, setActualWPM, gameType, setGameType, gameDuration, setGameDuration }) => {
+const Test = ({ isTyping, setIsTyping, actualWPM, setActualWPM, totalCorrectChars, setTotalCorrectChars, setTotalIncorrectChars, gameType, setGameType, gameDuration, setGameDuration }) => {
     return (
         <div className="flex-col align-center justify-center">
             <GamesOptions
@@ -13,6 +13,9 @@ const Test = ({ isTyping, setIsTyping, actualWPM, setActualWPM, gameType, setGam
             <TypingArea
                 actualWPM={actualWPM}
                 setActualWPM={setActualWPM}
+                totalCorrectChars={totalCorrectChars}
+                setTotalCorrectChars={setTotalCorrectChars}
+                setTotalIncorrectChars={setTotalIncorrectChars}
                 gameDuration={gameDuration}
                 gameType={gameType}
                 setGameType={setGameType}

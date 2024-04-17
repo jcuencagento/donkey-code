@@ -5,12 +5,11 @@ import Button from "@/ui/button";
 import Up from "@/motions/up";
 import { Progress } from 'rsuite';
 
-const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
+const TypingArea = ({ actualWPM, setActualWPM, totalCorrectChars, setTotalCorrectChars, setTotalIncorrectChars, gameDuration, gameType, setGameType, isTyping, setIsTyping }) => {
     const [gameText, setGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
     const [nextGameText, setNextGameText] = useState(texts[gameType][Math.floor(Math.random() * 60)]);
     const [seconds, setSeconds] = useState(gameDuration);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [totalCorrectChars, setTotalCorrectChars] = useState(0);
     const [incorrectChars, setIncorrectChars] = useState(0);
     const [mobile, setMobile] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -27,6 +26,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
+        setTotalIncorrectChars(0);
         setActualWPM('0.0');
     }, [gameDuration]);
 
@@ -38,6 +38,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
+        setTotalIncorrectChars(0);
         setGameText(texts[gameType][Math.floor(Math.random() * 60)]);
         setNextGameText(texts[gameType][Math.floor(Math.random() * 60)]);
         setActualWPM('0.0');
@@ -45,7 +46,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
 
     /* Test logic */
     useEffect(() => {
-        const handleKeyPress = (event) => {
+        const handleKeyPress = (event: { key: string; preventDefault: () => void; }) => {
             if (event.key === ' ') {
                 event.preventDefault();
             }
@@ -60,6 +61,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                                 setCurrentIndex((currentIndex) => currentIndex + 1);
                             } else {
                                 setIncorrectChars((prevIncorrectChars) => prevIncorrectChars + 1);
+                                setTotalIncorrectChars((prevTotalIncorrectChars) => prevTotalIncorrectChars + 1);
                             }
                         }
                     break;
@@ -77,7 +79,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                     break;
 
                     case 'Backspace':
-                        if (currentIndex > 0) {
+                        if (currentIndex > 0 || incorrectChars > 0) {
                             setIncorrectChars((prevIncorrectChars) => (prevIncorrectChars > 0 ? prevIncorrectChars - 1 : 0));
                         }
 
@@ -87,6 +89,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                         const alphanumeric = /^[a-zA-Z0-9\s.'\n{}[\]]$/;
                         if (alphanumeric.test(event.key)) {
                             setIncorrectChars((prevIncorrectChars) => prevIncorrectChars + 1);
+                            setTotalIncorrectChars((prevTotalIncorrectChars) => prevTotalIncorrectChars + 1);
                         }
 
                     break;
@@ -111,10 +114,10 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
     }, [isTyping, currentIndex, gameText, gameType, nextGameText, seconds]);
 
     /* Texts formatting */
-    const getHighlightedText = (currentIndex) => {
+    const getHighlightedText = (currentIndex: number) => {
         const correctText = gameText.slice(0, currentIndex);
         const currentChar = gameText[currentIndex + incorrectChars];
-        const incorrectText = gameText.slice(currentIndex + (currentIndex > 0 ? 0 : incorrectChars), currentIndex + incorrectChars);
+        const incorrectText = gameText.slice(currentIndex, currentIndex + incorrectChars);
         const remainingText = gameText.slice(currentIndex + 1 + incorrectChars);
         return (
             <div className={isTyping ? "text-xl xl:text-4xl text-primary m-auto" : "text-base xl:text-3xl text-primary m-auto"}>
@@ -136,15 +139,14 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                 <span style={{ opacity: '0.7' }}>{nextGameText}</span>
             </div>
         );
-
     };
 
     /* Timer */
     useEffect(() => {
-        let intervalId;
+        let intervalId: string | number | NodeJS.Timer | undefined;
         if (isTyping && gameDuration !== 'Inf') {
             intervalId = setInterval(() => {
-                setSeconds((prevSeconds) => {
+                setSeconds((prevSeconds: number) => {
                     if (prevSeconds === 0) {
                         clearInterval(intervalId);
                         setIsTyping(false);
@@ -153,6 +155,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
                         setCurrentIndex(0);
                         setTotalCorrectChars(0);
                         setIncorrectChars(0);
+                        setTotalIncorrectChars(0);
                     }
 
                     return prevSeconds > 0 ? prevSeconds - 1 : 0;
@@ -187,6 +190,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
+        setTotalIncorrectChars(0);
         setActualWPM('0.0');
     };
 
@@ -199,6 +203,7 @@ const TypingArea = ({ actualWPM, setActualWPM, gameDuration, gameType, setGameTy
         setCurrentIndex(0);
         setTotalCorrectChars(0);
         setIncorrectChars(0);
+        setTotalIncorrectChars(0);
         setActualWPM('0.0');
     };
 
