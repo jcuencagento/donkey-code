@@ -153,9 +153,6 @@ const TypingArea = ({ actualWPM, setActualWPM, totalCorrectChars, setTotalCorrec
                         setGameText(texts[gameType][Math.floor(Math.random() * 60)]);
                         setNextGameText(texts[gameType][Math.floor(Math.random() * 60)]);
                         setCurrentIndex(0);
-                        setTotalCorrectChars(0);
-                        setIncorrectChars(0);
-                        setTotalIncorrectChars(0);
                     }
 
                     return prevSeconds > 0 ? prevSeconds - 1 : 0;

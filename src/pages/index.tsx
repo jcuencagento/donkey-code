@@ -19,7 +19,7 @@ const Home: NextPage = () => {
     const [actualWPM, setActualWPM] = useState('0.0');
     const [totalCorrectChars, setTotalCorrectChars] = useState(0);
     const [totalIncorrectChars, setTotalIncorrectChars] = useState(0);
-    const [lastPercentage, setLastPercentage] = useState(0);
+    const [lastPercentage, setLastPercentage] = useState('0.00');
     const [lastWPM, setLastWPM] = useState('0.0');
     const [gameType, setGameType] = useState('English');
     const [gameDuration, setGameDuration] = useState(30);
@@ -87,12 +87,7 @@ const Home: NextPage = () => {
     useEffect(() => {
         if (!isTyping && actualWPM !== '0.0') {
             onSubmit({ wpm: actualWPM, gameType: gameType, gameDuration: gameDuration.toString(), mobile: mobile });
-            console.log('Finished');
-            console.log('actualWPM', actualWPM);
-            console.log('totalIncorrectChars', totalIncorrectChars);
-            console.log('totalCorrectChars', totalCorrectChars);
-            const correctPercentage: number = totalCorrectChars / (totalCorrectChars + totalIncorrectChars + 0.01) * 100;
-            console.log('correctPercentage', correctPercentage);
+            const correctPercentage: string = (totalCorrectChars / (totalCorrectChars + totalIncorrectChars + 0.01) * 100).toFixed(2);
             setLastWPM(actualWPM);
             setLastPercentage(correctPercentage);
         }
