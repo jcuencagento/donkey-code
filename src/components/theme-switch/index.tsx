@@ -22,10 +22,10 @@ export default function ThemeSwitch() {
     }
 
     return (
-        <div className="flex items-center justify-center hover:scale-110">
+        <div className="flex items-center">
             <button
                 aria-label="Switch theme"
-                className="text-primary bg-transparent flex flex-col items-center justify-center overflow-hidden rounded-md font-medium duration-200 ease-in-out sm:p-4"
+                className="text-primary bg-transparent flex flex-col items-center justify-center overflow-hidden rounded-md font-medium transform-gpu ease-in-out justify-center duration-300 hover:rotate-12 sm:p-4"
                 type="button"
                 onClick={onThemeChange}
             >

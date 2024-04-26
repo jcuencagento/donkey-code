@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { BiBox, BiCommand, BiMessageSquareEdit, BiPlayCircle, BiTrophy, BiInfoCircle } from "react-icons/bi";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { BiBox, BiMessageSquareEdit, BiPlayCircle, BiTrophy, BiInfoCircle, BiTerminal } from "react-icons/bi";
+import { BsGithub } from "react-icons/bs";
 import { Command, CommandInput, CommandList, CommandOption } from "superkey";
 
 const data = [
@@ -43,9 +43,9 @@ const data = [
     },
     {
         id: 7,
-        name: "Linkedin",
-        href: "https://www.linkedin.com/in/javiercuencagento/",
-        icon: <BsLinkedin />,
+        name: "Terms & Conditions",
+        href: "/privacy",
+        icon: <BiTerminal />,
     },
 ];
 
