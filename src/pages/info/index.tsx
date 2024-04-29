@@ -4,6 +4,7 @@ import InfoLayout from "@/layout/info";
 import Loader from "@/motions/loader";
 import WPMOverTimeChart from "@/components/wpmovertimechart";
 import WPMDistributionChart from "@/components/wpmdistributionchart";
+import TestTypesChart from "@/components/testtypeschart";
 
 const Info = () => {
     const { data: scoresData, isLoading: isLoadingScores, error: errorScores } = trpc.links.getAllScores.useQuery();
@@ -46,11 +47,14 @@ const Info = () => {
                         <h4 className="flex text-base xl:text-xl text-orange-500 mb-8 mt-0 justify-center">Also users tested {javascriptScores} times in JavaScript 🤓 or {spanishScores} in Spanish</h4>
                     </label>
                 )}
-                <div className="my-2">
-                    <WPMOverTimeChart />
+                <div className="my-6 lg:my-10">
+                    <WPMOverTimeChart scores={scoresData} />
                 </div>
-                <div className="my-2">
-                    <WPMDistributionChart />
+                <div className="my-6 lg:my-10">
+                    <WPMDistributionChart scores={scoresData} users={usersData} />
+                </div>
+                <div className="my-4 lg:my-8">
+                    <TestTypesChart scores={scoresData} />
                 </div>
             </div>
         </InfoLayout>

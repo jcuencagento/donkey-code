@@ -1,132 +1,89 @@
-import {
-    Card,
-    CardBody,
-    CardHeader,
-    Typography,
-} from "@material-tailwind/react";
+import React, { PureComponent } from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BiAlarmSnooze, BiTerminal } from "react-icons/bi";
+import { Score } from '@prisma/client';
 
-import Chart from "react-apexcharts";
-import { BiTerminal } from "react-icons/bi";
 
-const chartConfig = {
-    type: "line",
-    height: 240,
-    series: [
-      {
-        name: "Sales",
-        data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-      },
-    ],
-    options: {
-      chart: {
-        toolbar: {
-          show: false,
-        },
-      },
-      title: {
-        show: "",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      colors: ["blue"],
-      stroke: {
-        lineCap: "round",
-        curve: "smooth",
-      },
-      markers: {
-        size: 0,
-      },
-      xaxis: {
-        axisTicks: {
-          show: false,
-        },
-        axisBorder: {
-          show: false,
-        },
-        labels: {
-          style: {
-            colors: "blue",
-            fontSize: "12px",
-            fontFamily: "inherit",
-            fontWeight: 400,
-          },
-        },
-        categories: [
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: "blue",
-            fontSize: "12px",
-            fontFamily: "inherit",
-            fontWeight: 400,
-          },
-        },
-      },
-      grid: {
-        show: true,
-        borderColor: "blue",
-        strokeDashArray: 5,
-        xaxis: {
-          lines: {
-            show: true,
-          },
-        },
-        padding: {
-          top: 5,
-          right: 20,
-        },
-      },
-      fill: {
-        opacity: 0.8,
-      },
-      tooltip: {
-        theme: "dark",
-      },
+const data = [
+    {
+      name: 'Page A',
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
     },
-};
+    {
+      name: 'Page B',
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: 'Page C',
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: 'Page D',
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: 'Page E',
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: 'Page F',
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: 'Page G',
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+];
 
-const WPMOverTimeChart = () => {
-    return (
-        <Card>
-            <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="flex flex-col gap-4 rounded-none md:flex-row md:items-center"
-            >
-                <div className="w-max rounded-lg bg-gray-900 p-5 text-white ml-4">
-                  <BiTerminal className="h-6 w-6" />
-                </div>
-                <div>
-                  <Typography variant="h6" color="blue-gray">
-                      WPM over time
-                  </Typography>
-                  <Typography
-                      variant="small"
-                      color="gray"
-                      className="max-w-lg font-normal"
-                  >
-                      Total accumulation of mean WPM over time
-                  </Typography>
-                </div>
-            </CardHeader>
-            <CardBody className="px-2 pb-0">
-                <Chart {...chartConfig} />
-            </CardBody>
-        </Card>
-    );
-};
+interface WPMOverTimeChartProps {
+    scores: Score[] | undefined;
+}
 
-export default WPMOverTimeChart;
+export default class WPMOverTimeChart extends PureComponent<WPMOverTimeChartProps> {
+    render() {
+        const { scores } = this.props;
+
+        // Perform calculations with scores to generate data
+        return (
+            <div className="h-42 w-full">
+                <div className='flex align-center justify-center m-auto'>
+                    <BiAlarmSnooze size={36} className='mr-4' />
+                    <h1 className='text-bold text-xl lg:text-2xl'>WPM Over Time</h1>
+                </div>
+                <ResponsiveContainer width="100%" height="100%" minHeight={'320px'}>
+                    <AreaChart
+                        width={500}
+                        height={400}
+                        data={data}
+                        margin={{
+                            top: 10,
+                            right: 30,
+                            left: 0,
+                            bottom: 0,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
+        );
+    }
+};
