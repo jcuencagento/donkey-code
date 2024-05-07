@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, LabelList } from 'recharts';
 import { BiTerminal } from "react-icons/bi";
 import { Score } from '@prisma/client';
 
@@ -109,7 +109,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     }
 
     return (
-        <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="center">
             {`${(percent * 100).toFixed(0)}%`}
         </text>
     );
@@ -138,12 +138,13 @@ export default class TestTypesChart extends PureComponent<TestTypesChartProps> {
                                 cy="50%"
                                 labelLine={false}
                                 label={renderCustomizedLabel}
-                                outerRadius={80}
+                                outerRadius={100}
                                 fill="#8884d8"
                                 dataKey="value">
                                 {reduceDurations(scores).map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
+                                <LabelList dataKey="name" position="outside" offset={15} />
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
@@ -161,12 +162,13 @@ export default class TestTypesChart extends PureComponent<TestTypesChartProps> {
                                 cy="50%"
                                 labelLine={false}
                                 label={renderCustomizedLabel}
-                                outerRadius={80}
+                                outerRadius={100}
                                 fill="#8884d8"
                                 dataKey="value">
                                 {reduceGameTypes(scores).map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
+                                <LabelList dataKey="name" position="outside" offset={15} />
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
@@ -184,12 +186,13 @@ export default class TestTypesChart extends PureComponent<TestTypesChartProps> {
                                 cy="50%"
                                 labelLine={false}
                                 label={renderCustomizedLabel}
-                                outerRadius={80}
+                                outerRadius={100}
                                 fill="#8884d8"
                                 dataKey="value">
                                 {reduceDevice(scores).map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
+                                <LabelList dataKey="name" position="outside" offset={15} />
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
