@@ -9,16 +9,6 @@ const nextSeoConfig = {
             href: "/img/favicon.ico",
         },
         {
-            rel: "apple-touch-icon",
-            href: "/img/icon-192x192.png",
-            sizes: "192x192",
-        },
-        {
-            rel: "apple-touch-icon",
-            href: "/img/icon-114x114.png",
-            sizes: "114x114",
-        },
-        {
             rel: "manifest",
             href: "/manifest.json",
         },

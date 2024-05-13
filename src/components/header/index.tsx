@@ -18,11 +18,11 @@ const Header = () => {
                 <div className="flex items-center space-x-2 xl:space-x-6">
                     <Auth />
                     <Link aria-label="Info" href="/info">
-                        <IconButton className="bg-transparent text-primary" aria-label="Info" icon={<BiInfoCircle size={24} />} />
+                        <IconButton id="Information" className="bg-transparent text-primary" aria-label="Info" icon={<BiInfoCircle size={24} />} />
                     </Link>
                     <ThemeSwitch />
                     <Link aria-label="Leaderboard" href="/classification">
-                        <IconButton className="bg-transparent text-primary" aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
+                        <IconButton id="Leaderboard" className="bg-transparent text-primary" aria-label="Leaderboard" icon={<BiTrophy size={24} />} />
                     </Link>
                     <CommandMenu />
                 </div>

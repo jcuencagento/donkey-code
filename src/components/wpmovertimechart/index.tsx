@@ -59,7 +59,7 @@ export default class WPMOverTimeChart extends PureComponent<WPMOverTimeChartProp
 
         // Perform calculations with scores to generate data
         return (
-            <div className="h-42 w-full">
+            <div className="h-42 w-4/5 lg:w-full">
                 <div className='flex align-center justify-center m-auto'>
                     <BiAlarmSnooze size={36} className='mr-4' />
                     <h1 className='text-bold text-xl lg:text-2xl'>WPM Over Time</h1>

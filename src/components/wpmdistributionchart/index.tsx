@@ -70,7 +70,7 @@ export default class WPMDistributionChart extends PureComponent<WPMDistributionC
     render() {
         const { scores } = this.props;
         return (
-            <div className="h-42 w-full">
+            <div className="h-42 w-4/5 lg:w-full">
                 <div className='flex align-center justify-center m-auto'>
                     <BiAbacus size={36} className='mr-4' />
                     <h1 className='text-bold text-xl lg:text-2xl'>WPM Distribution</h1>
